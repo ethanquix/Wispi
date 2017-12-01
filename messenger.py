@@ -17,6 +17,7 @@ def hello():
     if request.method == 'GET':
         print("ARGS + ", request.args)
         if request.args.get("hub.verify_token") == VERIFY_TOKEN:
+            print(request.args)
             return request.args.get("hub.challenge")
         else:
             return 'Invalid verification token'
