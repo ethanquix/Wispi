@@ -63,6 +63,8 @@ def webhook():
                             "id"]  # the facebook ID of the person sending you the message
                         message_text = messaging_event["message"]["text"]  # the message's text
 
+                        handleMessage.handle(sender_id, message_text, page)
+
                         theme, city = anal.analyzeSentence(message_text)
                         printReturnKW(theme, city)
 
