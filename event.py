@@ -18,7 +18,20 @@ class EventAPI(object):
 
         return events
 
+    def getListCategories(self):
+        cat = self._api.call('categories/list')
+        for c in cat["category"]:
+            print(c['id'])
+
+    def parseTitle(self, events):
+        if events is None:
+            return None
+        for event in events['events']['event']:
+            print(event['title'])
+
+
 
 if __name__ == '__main__':
     ev = EventAPI()
-    ev.getEvent("Nice")
+    ev.getListCategories()
+    # ev.getEvent("Nice")

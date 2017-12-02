@@ -6,6 +6,7 @@ import json
 from datetime import datetime
 
 import event
+import keywords
 
 import requests
 from flask import Flask, request
@@ -13,6 +14,7 @@ from flask import Flask, request
 app = Flask(__name__)
 
 ev = event.EventAPI()
+anal = keywords.WispiKeywords()
 
 
 @app.route('/', methods=['GET'])
@@ -40,13 +42,15 @@ def webhook():
                         sender_id = messaging_event["sender"]["id"]  # the facebook ID of the person sending you the message
                         message_text = messaging_event["message"]["text"]  # the message's text
 
-                        # We get messages
-                        getEv = ev.getEvent(message_text, '5')
-                        out = ""
-                        for x in getEv['events']['event']:
-                            out += x['title'] + "\n"
+                        theme, city = anal.analyzeSentence(message_text)
 
-                        send_message(sender_id, "Voici les evenement: " + out)
+                        if city is None:
+                            out = "Veuillez spécifier une ville"
+                        else:
+                            getEv = ev.getEvent(city, '5', theme)
+                            out = ev.parseTitle(getEv)
+
+                        send_message(sender_id, out)
 
                     if messaging_event.get("delivery"):  # delivery confirmation
                         pass
