@@ -26,16 +26,16 @@ ev = event.EventAPI()
 anal = keywords.WispiKeywords()
 
 
-@app.route('/', methods=['GET'])
-def verify():
-    # when the endpoint is registered as a webhook, it must echo back
-    # the 'hub.challenge' value it receives in the query arguments
-    if request.args.get("hub.mode") == "subscribe" and request.args.get("hub.challenge"):
-        if not request.args.get("hub.verify_token") == os.environ["VERIFY_TOKEN"]:
-            return "Verification token mismatch", 403
-        return request.args["hub.challenge"], 200
-
-    return "Hello world", 200
+# @app.route('/', methods=['GET'])
+# def verify():
+#     # when the endpoint is registered as a webhook, it must echo back
+#     # the 'hub.challenge' value it receives in the query arguments
+#     if request.args.get("hub.mode") == "subscribe" and request.args.get("hub.challenge"):
+#         if not request.args.get("hub.verify_token") == os.environ["VERIFY_TOKEN"]:
+#             return "Verification token mismatch", 403
+#         return request.args["hub.challenge"], 200
+#
+#     return "Hello world", 200
 
 
 def printReturnKW(city, theme):
@@ -57,6 +57,7 @@ def webhook():
 
 @page.handle_message
 def message_handler(e):
+    print("JE SUIS ICI")
     sender_id = e.sender_id
     message = e.message_text
     handleMessage.handle(sender_id, message, page)
