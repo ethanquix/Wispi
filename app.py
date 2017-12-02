@@ -17,6 +17,11 @@ import secret
 
 app = Flask(__name__)
 
+log = logging.getLogger('werkzeug')
+log.setLevel(logging.ERROR)
+
+BANNED_USERNAME = ["1492060920843672"]
+
 page = Page(secret.PAGE_ACCESS_TOKEN)
 
 ev = event.EventAPI()
@@ -55,13 +60,15 @@ def webhook():
                 for messaging_event in entry["messaging"]:
 
                     if messaging_event.get("message"):  # someone sent us a message
-                        sender_id = messaging_event["sender"]["id"]  # the facebook ID of the person sending you the message
+                        sender_id = messaging_event["sender"]["id"]
                         message_text = messaging_event["message"]["text"]  # the message's text
                         logging.warning("Received message: " + message_text)
 
-                        page.send(sender_id, "DEBUGGING")
-                        # handleMessage.handle(sender_id, message_text, page)
-
+                        if sender_id not in BANNED_USERNAME:
+                            page.send(sender_id, "DEBUGGING")
+                        else:
+                            log.error("SENDER ID IN BANNED USERNAME")
+                            # handleMessage.handle(sender_id, message_text, page)
 
                     if messaging_event.get("delivery"):  # delivery confirmation
                         pass
