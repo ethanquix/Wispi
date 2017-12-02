@@ -1,1 +1,1 @@
-web: python3 messenger.py
+web: gunicorn app:app --log-file=-
