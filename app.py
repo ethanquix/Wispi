@@ -58,7 +58,8 @@ def webhook():
                     if messaging_event.get("postback"):  # user clicked/tapped "postback" button in earlier message
                         pass
     except Exception as e:
-        print("EXCEPTION: " + e)
+        print("EXCEPTION")
+        print(str(e))
 
     return "ok", 200
 
