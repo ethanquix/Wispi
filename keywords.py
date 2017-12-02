@@ -66,3 +66,4 @@ if __name__ == '__main__':
     print(w.analyzeSentence("Je cherche un artiste a londres"))
     print(w.analyzeSentence("Je cherche un musée a nioiioioidoiroriroriorice"))
     print(w.analyzeSentence("Je cherche un truc musical a Nice"))
+    print(w.analyzeSentence("qsdfghjkjhfxxcvbnjjsryuiknbv4584234"))

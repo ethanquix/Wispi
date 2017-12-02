@@ -4,6 +4,7 @@ import os
 import sys
 import json
 from datetime import datetime
+import sys, traceback
 
 import event
 import keywords
@@ -39,7 +40,8 @@ def webhook():
             for entry in data["entry"]:
                 for messaging_event in entry["messaging"]:
                     if messaging_event.get("message"):  # someone sent us a message
-                        sender_id = messaging_event["sender"]["id"]  # the facebook ID of the person sending you the message
+                        sender_id = messaging_event["sender"][
+                            "id"]  # the facebook ID of the person sending you the message
                         message_text = messaging_event["message"]["text"]  # the message's text
 
                         theme, city = anal.analyzeSentence(message_text)
@@ -64,9 +66,11 @@ def webhook():
 
                     if messaging_event.get("postback"):  # user clicked/tapped "postback" button in earlier message
                         pass
-    except Exception as e:
-        print("EXCEPTION")
-        print(str(e))
+    except:
+        print("Exception in user code:")
+        print("-" * 20)
+        traceback.print_exc(file=sys.stdout)
+        print("-" * 20)
 
     return "ok", 200
 
