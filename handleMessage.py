@@ -37,7 +37,7 @@ def handle(user, msg, page):
             Template.GenericElement("rift",
                                     subtitle="Next-generation virtual reality",
                                     item_url="https://www.oculus.com/en-us/rift/",
-                                    image_url="/assets/rift.png",
+                                    image_url="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Google_Images_2015_logo.svg/1200px-Google_Images_2015_logo.svg.png",
                                     buttons=[
                                         Template.ButtonWeb("Open Web URL", "https://www.oculus.com/en-us/rift/"),
                                         Template.ButtonPostBack("tigger Postback", "DEVELOPED_DEFINED_PAYLOAD"),
@@ -46,7 +46,7 @@ def handle(user, msg, page):
             Template.GenericElement("touch",
                                     subtitle="Your Hands, Now in VR",
                                     item_url="https://www.oculus.com/en-us/touch/",
-                                    image_url="/assets/touch.png",
+                                    image_url="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Google_Images_2015_logo.svg/1200px-Google_Images_2015_logo.svg.png",
                                     buttons=[
                                         Template.ButtonWeb("Open Web URL", "https://www.oculus.com/en-us/rift/"),
                                         Template.ButtonPostBack("tigger Postback", "DEVELOPED_DEFINED_PAYLOAD"),
