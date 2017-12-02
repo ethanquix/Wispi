@@ -43,6 +43,7 @@ def webhook():
                         message_text = messaging_event["message"]["text"]  # the message's text
 
                         theme, city = anal.analyzeSentence(message_text)
+                        print("Theme is " + theme, " city is " + city)
 
                         if city is None:
                             out = "Veuillez spécifier une ville"

@@ -36,7 +36,7 @@ class WispiKeywords(object):
 
     def wordIsTopic(self, word):
         for topic, value in self.kwords.items():
-            if word in value:
+            if word.lower() in value:
                 return topic
         return None
 
@@ -49,6 +49,7 @@ class WispiKeywords(object):
             if city is None:
                 city = self.citiesExist(word)
         return theme, city
+
 
 if __name__ == '__main__':
     w = WispiKeywords()
