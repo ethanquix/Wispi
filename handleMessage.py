@@ -21,7 +21,7 @@ def addTemplate(eventName, eventDate, eventLink, eventAdress, eventCity):
 
 def handle(user, msg, page):
     theme, city = anal.analyzeSentence(msg)
-    printReturnKW(theme, city)
+    printReturnKW(city, theme)
     out = "Veuillez reformuler"
 
     tList = []
