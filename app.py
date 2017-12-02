@@ -28,8 +28,6 @@ anal = keywords.WispiKeywords()
 
 @app.route('/', methods=['GET'])
 def verify():
-    # when the endpoint is registered as a webhook, it must echo back
-    # the 'hub.challenge' value it receives in the query arguments
     if request.args.get("hub.mode") == "subscribe" and request.args.get("hub.challenge"):
         if not request.args.get("hub.verify_token") == os.environ["VERIFY_TOKEN"]:
             return "Verification token mismatch", 403
@@ -58,10 +56,12 @@ def webhook():
         if data["object"] == "page":
             for entry in data["entry"]:
                 for messaging_event in entry["messaging"]:
+
                     if messaging_event.get("message"):  # someone sent us a message
                         sender_id = messaging_event["sender"]["id"]  # the facebook ID of the person sending you the message
                         message_text = messaging_event["message"]["text"]  # the message's text
                         handleMessage.handle(sender_id, message_text, page)
+
 
                     if messaging_event.get("delivery"):  # delivery confirmation
                         pass
