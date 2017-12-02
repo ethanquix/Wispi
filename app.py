@@ -21,7 +21,7 @@ def verify():
     return "Hello world", 200
 
 
-@app.route('/', methods=['POST'])
+@app.route('/webhook', methods=['POST'])
 def webhook():
 
     # endpoint for processing incoming messaging events
@@ -86,6 +86,7 @@ def log(msg, *args, **kwargs):  # simple wrapper for logging to stdout on heroku
             msg = unicode(msg).format(*args, **kwargs)
         print u"{}: {}".format(datetime.now(), msg)
     except UnicodeEncodeError:
+        print "Unicode Encode Error"
         pass  # squash logging errors in case of non-ascii text
     sys.stdout.flush()
 
