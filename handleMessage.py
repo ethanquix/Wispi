@@ -34,6 +34,7 @@ def handle(user, msg, page):
         return "ok", 200
     else:
         getEv = ev.getEvent(city, '5', theme)
-        for tmp in getEv['events']['event']:
+        print(getEv)
+        for tmp in getEv:
             tList.append(ev.formatEvent(tmp))
     page.send(user, Template.Generic(tList))

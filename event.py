@@ -12,12 +12,10 @@ class EventAPI(object):
             events = self._api.call('/events/search', l=cityOfEvent, page_size=nbElem, q=typeOfEvent)
         else:
             events = self._api.call('/events/search', l=cityOfEvent, page_size=nbElem)
+        out = []
         for event in events['events']['event']:
-            print(event)
-            return 0
-            # print("%s at %s" % (event['title'], event['venue_name']))
-
-        return events
+            out.append(event)
+        return out
 
     def getListCategories(self):
         cat = self._api.call('categories/list')
@@ -28,7 +26,7 @@ class EventAPI(object):
         out = ""
         if events is None:
             return None
-        for event in events['events']['event']:
+        for event in events:
             out += event['title'] + "\n"
         return out
 
@@ -43,5 +41,6 @@ class EventAPI(object):
 
 if __name__ == '__main__':
     ev = EventAPI()
-    # ev.getListCategories()
-    ev.getEvent("Nice")
+    tmp = ev.getEvent("Nice")
+    for x in tmp:
+        print(ev.formatEvent(x))
