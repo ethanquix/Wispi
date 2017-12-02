@@ -30,6 +30,16 @@ def verify():
     return "Hello world", 200
 
 
+def printReturnKW(city, theme):
+    if city is None and theme is not None:
+        print("City is None, theme is: " + theme)
+    elif theme is None and city is not None:
+        print("Theme is None, city is: " + city)
+    if city is not None and theme is not None:
+        print("City is " + city + " theme is " + theme)
+    if city is None and theme is None:
+        print("City is " + "None" + " theme is " + "None")
+
 @app.route('/', methods=['POST'])
 def webhook():
     try:
@@ -45,12 +55,16 @@ def webhook():
                         message_text = messaging_event["message"]["text"]  # the message's text
 
                         theme, city = anal.analyzeSentence(message_text)
-                        print("Theme is " + theme, " city is " + city)
+                        printReturnKW(theme, city)
 
-                        out = "DEFAULT MESSAGE"
+                        out = "Veuillez reformuler"
 
                         if city is None:
                             out = "Veuillez spécifier une ville"
+
+                        if city is None and theme is None:
+                            send_message(sender_id, out)
+                            return "ok", 200
                         else:
                             getEv = ev.getEvent(city, '5', theme)
                             out = ev.parseTitle(getEv)
