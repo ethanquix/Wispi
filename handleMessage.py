@@ -1,6 +1,7 @@
 import keywords
 from app import printReturnKW
 from fbmq import Template
+import logging
 
 import urllib.parse
 
@@ -12,14 +13,14 @@ anal = keywords.WispiKeywords()
 
 
 def addTemplate(eventName, eventDate, eventLink, eventAdress, eventCity):
+    logging.info("Event address: " + eventAdress)
     return Template.GenericElement(eventName,
                                    subtitle=eventDate,
                                    item_url=eventLink,
                                    image_url=searchImage.getImageUrl(eventName + " " + eventCity),
                                    buttons=[
                                        Template.ButtonWeb("Open in Map",
-                                                          "https://www.google.fr/maps/place/" + urllib.parse.quote(
-                                                              eventAdress)),
+                                                          "https://www.google.fr/maps/place/" + urllib.parse.quote(eventAdress)),
                                        Template.ButtonWeb("Open Event", eventLink),
                                        Template.ButtonShare()
                                    ])

@@ -1,22 +1,19 @@
 # -*- coding: utf-8 -*-
 
+import json
 import os
 import sys
-import json
-from datetime import datetime
-import sys, traceback
-
-import event
-import keywords
+import traceback
+import logging
 
 import requests
+from fbmq import Page
 from flask import Flask, request
 
-from fbmq import Page
-
-import secret
-
+import event
 import handleMessage
+import keywords
+import secret
 
 app = Flask(__name__)
 
@@ -52,7 +49,7 @@ def webhook():
     try:
         # endpoint for processing incoming messaging events
         data = request.get_json()
-        log(data)  # you may not want to log every incoming message in production, but it's good for testing
+        # log(data)  # you may not want to log every incoming message in production, but it's good for testing
         if data["object"] == "page":
             for entry in data["entry"]:
                 for messaging_event in entry["messaging"]:
@@ -60,6 +57,8 @@ def webhook():
                     if messaging_event.get("message"):  # someone sent us a message
                         sender_id = messaging_event["sender"]["id"]  # the facebook ID of the person sending you the message
                         message_text = messaging_event["message"]["text"]  # the message's text
+                        logging.warning("Received message: " + message_text)
+
                         handleMessage.handle(sender_id, message_text, page)
 
 
