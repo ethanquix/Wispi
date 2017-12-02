@@ -19,5 +19,6 @@ class EventAPI(object):
         return events
 
 
-ev = EventAPI()
-ev.getEvent("Nice")
+if __name__ == '__main__':
+    ev = EventAPI()
+    ev.getEvent("Nice")
