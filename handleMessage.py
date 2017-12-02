@@ -2,6 +2,7 @@ import keywords
 from app import printReturnKW
 from fbmq import Template
 import logging
+import alog
 
 import urllib.parse
 
@@ -13,8 +14,8 @@ anal = keywords.WispiKeywords()
 
 
 def addTemplate(eventName, eventDate, eventLink, eventAdress, eventCity):
-    logging.warning("Entering in add template")
-    logging.info("Event address: " + eventAdress)
+    # alog.warning("Entering in add template")
+    # alog.info("Event address: " + eventAdress)
     return Template.GenericElement(eventName,
                                    subtitle=eventDate,
                                    item_url=eventLink,

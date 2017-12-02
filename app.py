@@ -5,10 +5,14 @@ import os
 import sys
 import traceback
 import logging
-
+import alog
 import requests
-from fbmq import Page
+from fbmq import Page, Template
 from flask import Flask, request
+
+import _thread
+
+import pprint
 
 import event
 import handleMessage
@@ -17,8 +21,8 @@ import secret
 
 app = Flask(__name__)
 
-log = logging.getLogger('werkzeug')
-log.setLevel(logging.ERROR)
+# log = logging.getLogger('werkzeug')
+# log.setLevel(logging.ERROR)
 
 BANNED_USERNAME = ["1492060920843672"]
 
@@ -52,23 +56,23 @@ def printReturnKW(city, theme):
 @app.route('/', methods=['POST'])
 def webhook():
     try:
-        # endpoint for processing incoming messaging events
         data = request.get_json()
         # log(data)  # you may not want to log every incoming message in production, but it's good for testing
         if data["object"] == "page":
             for entry in data["entry"]:
                 for messaging_event in entry["messaging"]:
-
-                    if messaging_event.get("message"):  # someone sent us a message
+                    if messaging_event.get("message"):
+                        pprint.pprint(messaging_event)
+                        if "is_echo" in messaging_event["message"]:
+                            continue
                         sender_id = messaging_event["sender"]["id"]
                         message_text = messaging_event["message"]["text"]  # the message's text
-                        logging.warning("Received message: " + message_text)
+                        alog.warning("Received message: " + message_text)
 
                         if sender_id not in BANNED_USERNAME:
-                            page.send(sender_id, "DEBUGGING")
+                            _thread.start_new_thread(handleMessage.handle, (sender_id, message_text, page))
                         else:
-                            log.error("SENDER ID IN BANNED USERNAME")
-                            # handleMessage.handle(sender_id, message_text, page)
+                            alog.warning("SENDER ID IN BANNED USERNAME")
 
                     if messaging_event.get("delivery"):  # delivery confirmation
                         pass
@@ -117,4 +121,5 @@ def log(msg, *args, **kwargs):
 
 
 if __name__ == '__main__':
+    page.show_persistent_menu([Template.ButtonWeb("Wispi", "http://wispi.tk")])
     app.run(port=8042, debug=True)
