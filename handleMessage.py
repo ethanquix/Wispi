@@ -13,10 +13,16 @@ anal = keywords.WispiKeywords()
 
 def addTemplate(eventName, eventDate, eventLink, eventAdress, eventCity):
     return Template.GenericElement(eventName,
-                                subtitle=eventDate,
-                                item_url=eventLink,
-                                image_url=searchImage.getImageUrl(eventName + " " + eventCity),
-                                buttons=[Template.ButtonWeb("Open in Map", "https://www.google.fr/maps/place/" + urllib.parse.quote(eventAdress))])
+                                   subtitle=eventDate,
+                                   item_url=eventLink,
+                                   image_url=searchImage.getImageUrl(eventName + " " + eventCity),
+                                   buttons=[
+                                       Template.ButtonWeb("Open in Map",
+                                                          "https://www.google.fr/maps/place/" + urllib.parse.quote(
+                                                              eventAdress)),
+                                       Template.ButtonWeb("Open Event", eventLink),
+                                       Template.ButtonShare()
+                                   ])
 
 
 def handle(user, msg, page):
@@ -34,7 +40,6 @@ def handle(user, msg, page):
         return
     else:
         getEv = ev.getEvent(city, '5', theme)
-        print(getEv)
         for tmp in getEv:
             eventName, eventDate, eventLink, eventAdress, eventCity = ev.formatEvent(tmp)
             tList.append(addTemplate(eventName, eventDate, eventLink, eventAdress, eventCity))
