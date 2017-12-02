@@ -23,7 +23,7 @@ def verify():
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
-
+    log("JE SUIS ICI MDR");
     # endpoint for processing incoming messaging events
 
     data = request.get_json()
