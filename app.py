@@ -62,25 +62,7 @@ def webhook():
                         sender_id = messaging_event["sender"][
                             "id"]  # the facebook ID of the person sending you the message
                         message_text = messaging_event["message"]["text"]  # the message's text
-
                         handleMessage.handle(sender_id, message_text, page)
-
-                        theme, city = anal.analyzeSentence(message_text)
-                        printReturnKW(theme, city)
-
-                        out = "Veuillez reformuler"
-
-                        if city is None:
-                            out = "Veuillez spécifier une ville"
-
-                        if city is None and theme is None:
-                            send_message(sender_id, out)
-                            return "ok", 200
-                        else:
-                            getEv = ev.getEvent(city, '5', theme)
-                            out = ev.parseTitle(getEv)
-
-                        send_message(sender_id, out)
 
                     if messaging_event.get("delivery"):  # delivery confirmation
                         pass
