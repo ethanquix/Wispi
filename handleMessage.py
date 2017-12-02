@@ -31,10 +31,31 @@ def handle(user, msg, page):
 
     if city is None and theme is None:
         page.send(user, out)
-        return "ok", 200
-    else:
-        getEv = ev.getEvent(city, '5', theme)
-        print(getEv)
-        for tmp in getEv:
-            tList.append(ev.formatEvent(tmp))
-    page.send(user, Template.Generic(tList))
+        return
+
+    page.send(user, Template.Generic([
+            Template.GenericElement("rift",
+                                    subtitle="Next-generation virtual reality",
+                                    item_url="https://www.oculus.com/en-us/rift/",
+                                    image_url="/assets/rift.png",
+                                    buttons=[
+                                        Template.ButtonWeb("Open Web URL", "https://www.oculus.com/en-us/rift/"),
+                                        Template.ButtonPostBack("tigger Postback", "DEVELOPED_DEFINED_PAYLOAD"),
+                                        Template.ButtonPhoneNumber("Call Phone Number", "+16505551234")
+                                    ]),
+            Template.GenericElement("touch",
+                                    subtitle="Your Hands, Now in VR",
+                                    item_url="https://www.oculus.com/en-us/touch/",
+                                    image_url="/assets/touch.png",
+                                    buttons=[
+                                        Template.ButtonWeb("Open Web URL", "https://www.oculus.com/en-us/rift/"),
+                                        Template.ButtonPostBack("tigger Postback", "DEVELOPED_DEFINED_PAYLOAD"),
+                                        Template.ButtonPhoneNumber("Call Phone Number", "+16505551234")
+                                    ])
+        ]))
+    # else:
+    #     getEv = ev.getEvent(city, '5', theme)
+    #     print(getEv)
+    #     for tmp in getEv:
+    #         tList.append(ev.formatEvent(tmp))
+    # page.send(user, Template.Generic(tList))
