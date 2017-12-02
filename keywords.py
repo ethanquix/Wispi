@@ -1,4 +1,7 @@
 import json
+import event
+
+ev = event.EventAPI()
 
 DATA_CITIES_NAME = "data/cities.json"
 
@@ -31,7 +34,7 @@ class WispiKeywords(object):
 
     def citiesExist(self, citie):
         if citie.lower() in self.cities:
-            return True
+            return citie
         return None
 
     def wordIsTopic(self, word):
@@ -53,6 +56,7 @@ class WispiKeywords(object):
 
 if __name__ == '__main__':
     w = WispiKeywords()
+    print(w.citiesExist("Paris"))
     print(w.citiesExist("Londres"))
     print(w.citiesExist("London"))
     print(w.citiesExist("diroriori"))
