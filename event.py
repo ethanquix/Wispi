@@ -24,11 +24,12 @@ class EventAPI(object):
             print(c['id'])
 
     def parseTitle(self, events):
+        out = ""
         if events is None:
             return None
         for event in events['events']['event']:
-            print(event['title'])
-
+            out += event['title'] + "\n"
+        return out
 
 
 if __name__ == '__main__':
