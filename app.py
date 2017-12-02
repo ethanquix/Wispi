@@ -51,6 +51,7 @@ def printReturnKW(city, theme):
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
+    print("JE SUIS ICI AUSSI")
     page.handle_webhook(request.get_data(as_text=True))
     return "ok"
 
