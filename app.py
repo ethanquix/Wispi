@@ -12,7 +12,15 @@ import keywords
 import requests
 from flask import Flask, request
 
+from fbmq import Page
+
+import secret
+
+import handleMessage
+
 app = Flask(__name__)
+
+page = Page(secret.PAGE_ACCESS_TOKEN)
 
 ev = event.EventAPI()
 anal = keywords.WispiKeywords()
@@ -40,53 +48,66 @@ def printReturnKW(city, theme):
     if city is None and theme is None:
         print("City is " + "None" + " theme is " + "None")
 
-@app.route('/', methods=['POST'])
+
+@app.route('/webhook', methods=['POST'])
 def webhook():
-    try:
-        # endpoint for processing incoming messaging events
-        data = request.get_json()
-        log(data)  # you may not want to log every incoming message in production, but it's good for testing
-        if data["object"] == "page":
-            for entry in data["entry"]:
-                for messaging_event in entry["messaging"]:
-                    if messaging_event.get("message"):  # someone sent us a message
-                        sender_id = messaging_event["sender"][
-                            "id"]  # the facebook ID of the person sending you the message
-                        message_text = messaging_event["message"]["text"]  # the message's text
+    page.handle_webhook(request.get_data(as_text=True))
+    return "ok"
 
-                        theme, city = anal.analyzeSentence(message_text)
-                        printReturnKW(theme, city)
 
-                        out = "Veuillez reformuler"
-
-                        if city is None:
-                            out = "Veuillez spécifier une ville"
-
-                        if city is None and theme is None:
-                            send_message(sender_id, out)
-                            return "ok", 200
-                        else:
-                            getEv = ev.getEvent(city, '5', theme)
-                            out = ev.parseTitle(getEv)
-
-                        send_message(sender_id, out)
-
-                    if messaging_event.get("delivery"):  # delivery confirmation
-                        pass
-                        # send_message(sender_id, "t'a recu mon message... trop cool !")
-
-                    if messaging_event.get("optin"):  # optin confirmation
-                        pass
-
-                    if messaging_event.get("postback"):  # user clicked/tapped "postback" button in earlier message
-                        pass
-    except:
-        print("Exception in user code:")
-        print("-" * 20)
-        traceback.print_exc(file=sys.stdout)
-        print("-" * 20)
-
-    return "ok", 200
+@page.handle_message
+def message_handler(e):
+    sender_id = e.sender_id
+    message = e.message_text
+    handleMessage.handle(sender_id, message, page)
+#
+# @app.route('/', methods=['POST'])
+# def webhook():
+#     try:
+#         # endpoint for processing incoming messaging events
+#         data = request.get_json()
+#         log(data)  # you may not want to log every incoming message in production, but it's good for testing
+#         if data["object"] == "page":
+#             for entry in data["entry"]:
+#                 for messaging_event in entry["messaging"]:
+#                     if messaging_event.get("message"):  # someone sent us a message
+#                         sender_id = messaging_event["sender"][
+#                             "id"]  # the facebook ID of the person sending you the message
+#                         message_text = messaging_event["message"]["text"]  # the message's text
+#
+#                         theme, city = anal.analyzeSentence(message_text)
+#                         printReturnKW(theme, city)
+#
+#                         out = "Veuillez reformuler"
+#
+#                         if city is None:
+#                             out = "Veuillez spécifier une ville"
+#
+#                         if city is None and theme is None:
+#                             send_message(sender_id, out)
+#                             return "ok", 200
+#                         else:
+#                             getEv = ev.getEvent(city, '5', theme)
+#                             out = ev.parseTitle(getEv)
+#
+#                         send_message(sender_id, out)
+#
+#                     if messaging_event.get("delivery"):  # delivery confirmation
+#                         pass
+#                         # send_message(sender_id, "t'a recu mon message... trop cool !")
+#
+#                     if messaging_event.get("optin"):  # optin confirmation
+#                         pass
+#
+#                     if messaging_event.get("postback"):  # user clicked/tapped "postback" button in earlier message
+#                         pass
+#     except:
+#         print("Exception in user code:")
+#         print("-" * 20)
+#         traceback.print_exc(file=sys.stdout)
+#         print("-" * 20)
+#
+#     return "ok", 200
 
 
 def send_message(recipient_id, message_text):
