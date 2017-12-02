@@ -21,8 +21,8 @@ import secret
 
 app = Flask(__name__)
 
-# log = logging.getLogger('werkzeug')
-# log.setLevel(logging.ERROR)
+log = logging.getLogger('werkzeug')
+log.setLevel(logging.ERROR)
 
 BANNED_USERNAME = ["1492060920843672"]
 
