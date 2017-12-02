@@ -13,7 +13,8 @@ class EventAPI(object):
         else:
             events = self._api.call('/events/search', l=cityOfEvent, page_size=nbElem)
         for event in events['events']['event']:
-            print(event['title'])
+            print(event)
+            return 0
             # print("%s at %s" % (event['title'], event['venue_name']))
 
         return events
@@ -31,8 +32,16 @@ class EventAPI(object):
             out += event['title'] + "\n"
         return out
 
+    def formatEvent(self, eventToFormat):
+        eventName = eventToFormat['title']
+        eventDate = eventToFormat['start_time']
+        eventLink = eventToFormat['venue_url']
+        eventAdress = eventToFormat['venue_address']
+        eventCity = eventToFormat['city_name']
+        return eventName, eventDate, eventLink, eventAdress, eventCity
+
 
 if __name__ == '__main__':
     ev = EventAPI()
-    ev.getListCategories()
-    # ev.getEvent("Nice")
+    # ev.getListCategories()
+    ev.getEvent("Nice")
