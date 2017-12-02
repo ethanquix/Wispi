@@ -13,6 +13,7 @@ anal = keywords.WispiKeywords()
 
 
 def addTemplate(eventName, eventDate, eventLink, eventAdress, eventCity):
+    logging.warning("Entering in add template")
     logging.info("Event address: " + eventAdress)
     return Template.GenericElement(eventName,
                                    subtitle=eventDate,

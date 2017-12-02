@@ -59,7 +59,8 @@ def webhook():
                         message_text = messaging_event["message"]["text"]  # the message's text
                         logging.warning("Received message: " + message_text)
 
-                        handleMessage.handle(sender_id, message_text, page)
+                        page.send(sender_id, "DEBUGGING")
+                        # handleMessage.handle(sender_id, message_text, page)
 
 
                     if messaging_event.get("delivery"):  # delivery confirmation
