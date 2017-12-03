@@ -9,7 +9,7 @@ template:
 #    repo: my-project
 
 title: Wispi
-subTitle: Messenger BOT with gather social events aroud you
+subTitle: Messenger BOT which gather social events around you
 
 # The left menu bar
 menu:
@@ -19,7 +19,7 @@ menu:
             items:
                 home:
                     text: Home
-                    relativeUrl: readme.html
+                    relativeUrl: index.html
                 fonctionnalites:
                     text: Fonctionnalites
                     relativeUrl: fonctionnalites.html
@@ -40,8 +40,8 @@ menu:
             items:
                 privacy:
                     text: Privacy
-                    relativeUrl: http://wispy.tk
+                    absoluteUrl: http://wispi.tk
                 wispy:
                     text: Wispy Bot
-                    relativeUrl: https://www.facebook.com/wispibot/
+                    absoluteUrl: https://www.facebook.com/wispibot/
 

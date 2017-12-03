@@ -5,9 +5,12 @@
 > [Choix du langage](#Choix_du_langage)  
 > [Choix des modules Python](#Choix_des_modules_Python)  
 > [Choix des API](#Choix_des_API)  
+> [Bade de données](#bdd)  
 > [Unit test](#Unit_test)  
 > [Deploiement](#Deploiement)  
-> [Agile Dev](#Agile_Dev)
+> [Agile Dev](#Agile_Dev)  
+> [Documentation](#Documentation)
+> [Autres](#Autre)
 
 
 ## Introduction <a id="Introduction"></a>
