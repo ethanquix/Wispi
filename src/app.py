@@ -72,18 +72,18 @@ def webhook():
                 for messaging_event in entry["messaging"]:
                     if messaging_event.get("message"):
 
-                        statsd.increment('messages_received')
+                        statsd.increment('message.received')
 
                         if "is_echo" in messaging_event["message"]:
 
-                            statsd.increment('messages_echo')
+                            statsd.increment('message.echo')
 
                             continue
                         sender_id = messaging_event["sender"]["id"]
 
                         if "attachments" in messaging_event["message"]:
 
-                            statsd.increment('messages_location')
+                            statsd.increment('message.location')
 
                             coord = ""
                             if "payload" in messaging_event["message"]["attachments"][0]:
@@ -120,7 +120,7 @@ def webhook():
 
                         alog.warning("Receive postback " + sender_id + " " + message_text)
                         if message_text == GET_STARTED:
-                            statsd.increment('get_started')
+                            statsd.increment('message.get_started')
                             handleMessage.sendHelp(sender_id, page)
                             continue
 

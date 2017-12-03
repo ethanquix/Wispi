@@ -20,8 +20,9 @@ def getImageUrl(query):
                           "Chrome/43.0.2357.134 Safari/537.36 "
         }
         soup = get_soup(url, header)
-        return json.loads(soup.__str__())["data"]["result"]["items"][0]["media"] # pragma: no cover
-    except:
+        out = json.loads(soup.__str__())["data"]["result"]["items"][0]["media"]
+        return out # pragma: no cover
+    except Exception as e:
         return config.DEFAULT_IMG
 
 
