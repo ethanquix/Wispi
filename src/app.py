@@ -122,7 +122,7 @@ def webhook():
                         alog.warning("Receive postback " + sender_id + " " + message_text)
                         if message_text == GET_STARTED:
                             statsd.increment('message.get_started')
-                            handleMessage.sendHelp(sender_id, page)
+                            page.send(sender_id, "Hello je suis Wispi ton compagnon de voyage\n je suis la pour te suggérer des activitées :)\n\nTape aide pour plus d'infos")
                             continue
 
                         if sender_id not in BANNED_USERNAME:

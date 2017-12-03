@@ -4,10 +4,18 @@
 
 ## Le déploiement du serveur
 
-  Nous avons du acheter un nom de domaine, un serveur, le configurer.  
-  Lorsque nous avons lancé notre bot pour la première fois et que Facebook nous a indiqué que nous devions avoir un url en https nous avons du apprendre a génerer des certificats SSL mais aussi a configurer Nginx.
+  **Problème**
+
+  Pour que notre Bot marche, Facebook nous a demandé d'avoir notre propre serveur, un nom de domaine, et un certificat SSL pour le HTTPS
+
+  **Solution**
+
+  Nous avons du acheter un nom de domaine (namecheap), louer un serveur VPS (digitalocean)  
+  Nous avons ensuite utilisé letsencrypt pour générer les certificats SSL, Nginx en tant que reverse proxy et datadog en tant que monitoring
 
 ## Récupération des gouts de l'utilisateur
+
+ **Problème**
 
  Notre bot devait aller récupérer sur les réseaux sociaux les gouts de l'utilisateur et ainsi déterminer ses centres d'interet.
 
@@ -21,3 +29,15 @@
   De plus, nous mémorisons les recherches de l'utilisateur afin de par la suite pouvoir déterminer ses gouts
   ![prevision](imgs/prevision.png)
 
+## Api de recherche d'image extrèmement lente
+
+ **Problème**
+
+ L'api de recherche d'évènements nous retourne le titre de l'évènement.  
+ Nous voulions aussi en afficher une image a l'utilisateur  
+ Au début nous utilisions Google Image qui s'est avéré bien trop long par la suite
+
+ **Solution**
+
+ Nous sommes passés sur Qwant qui offre une api bien plus rapide et plus simple.
+ Ce n'est malheureusement pas une solution viable car au bout de ~1000 requetes / jour nous sommes stoppés pendant 24h

@@ -4,6 +4,8 @@ import alog
 import arrow
 from fbmq import Template
 
+import emoji
+
 from app import printReturnKW
 from data_collect import searchImage
 from eventManager import event
@@ -53,8 +55,8 @@ def handleLocation(user, loc, page):
 
 
 def sendHelp(user, page):
-    out = "Wispi Bot:\n--------\n* Evenements:\n" \
-          "Rechercher un evènement: 'Trouve moi quelquechose a Paris | Nice'\n" \
+    out = "Commandes:\n--------\n* Evenements:\n" \
+          "Rechercher un evènement" + emoji.emojize(':balloon:') + ": 'Trouve moi quelquechose a Paris | Nice'\n" \
           "Rechercher par thème: 'Trouve moi moi un concert a Paris\n" \
           "* Centres d'intérets:\n" \
           "Lister: list\n" \
