@@ -1,20 +1,21 @@
-template:
-    url: https://github.com/CouscousPHP/Template-Dark
-
-#baseUrl: http://username.github.io/project
+#template:
+#    url: https://github.com/CouscousPHP/Template-Dark
+#
+baseUrl: http://dimitriwyzlic.me/Wispi
+cname: dimitriwyzlic.me
 
 # Used to link to the GitHub project
 #github:
-#    user: myself
-#    repo: my-project
+#    user: ethanquix
+#    repo: Wispi
 
 title: Wispi
 subTitle: Messenger BOT which gather social events around you
 
 # The left menu bar
 menu:
-    sections:
-        main:
+#    sections:
+#        main:
             name: Documentation
             items:
                 home:
@@ -35,9 +36,15 @@ menu:
                 use_case:
                     text: Cas d'utilisations
                     relativeUrl: use_case.html
-        other:
-            name: Other
-            items:
+                posts:
+                    text: Reseaux Sociaux
+                    relativeUrl: posts.html
+                why:
+                    text: Pourquoi un Bot ?
+                    relativeUrl: why.html
+#        other:
+#            name: Other
+#            items:
                 privacy:
                     text: Privacy
                     absoluteUrl: http://wispi.tk
