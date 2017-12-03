@@ -26,7 +26,6 @@ def addTemplate(eventName, eventDate, eventLink, eventAdress, eventCity, idEvent
     return Template.GenericElement(eventName,
                                    subtitle=arrow.get(eventDate).humanize(),
                                    item_url=eventLink,
-                                   # image_url=searchImage.getImageUrl(eventName + " " + eventCity),
                                    image_url=searchImage.getImageUrl(eventName),
                                    buttons=[
                                        Template.ButtonWeb("Open in Map", urlOfAddress),
@@ -48,7 +47,23 @@ def handleLocation(user, loc, page):
     page.send(user, Template.Generic(tList))
 
 
+def sendHelp(user, page):
+    out = "Wispi Bot:\n--------\n* Evenements:\n" \
+          "Rechercher un evènement: 'Trouve moi quelquechose a Paris | Nice'\n" \
+          "Rechercher par thème: 'Trouve moi moi un concert a Paris\n" \
+          "* Centres d'intérets:\n" \
+          "Lister: list\n" \
+          "Ajouter: ajoute business\n" \
+          "Supprimer: supprime business\n"
+    page.send(user, out)
+
+
 def handle(user, msg, page):
+    helpMsg = ["help", "aide"]
+    for h in helpMsg:
+        if h in msg:
+            return sendHelp(user, page)
+
     typeOfHandle, theme, city = anal.analyzeSentence(msg)
 
     if typeOfHandle == keywords.SentenceType.SEARCH_EVENT:
@@ -65,10 +80,14 @@ def handle(user, msg, page):
                 page.send(user, "Désolé il n'y a aucun evenement a cet endroit")
                 return
             for tmp in getEv:
-                eventName, eventDate, eventLink, eventAdress, eventCity,eventId = ev.formatEvent(tmp)
+                eventName, eventDate, eventLink, eventAdress, eventCity, eventId = ev.formatEvent(tmp)
                 if eventAdress is not None:
                     tList.append(addTemplate(eventName, eventDate, eventLink, eventAdress, eventCity, eventId))
-            page.send(user, Template.Generic(tList))
+                else:
+                    tList.append(addTemplate(eventName, eventDate, eventLink, city, city, eventId))
+            r = page.send(user, Template.Generic(tList))
+            if not r.ok:
+                page.send(user, "Il y a eu un problème lors de l'envoi du message")
 
     elif typeOfHandle == keywords.SentenceType.GET_TASTE:
         page.send(user, tastes.getTastes(user))

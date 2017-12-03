@@ -4,6 +4,9 @@ from pprint import pprint
 client = MongoClient("localhost")
 db = client.wispi
 
+kwords = dict()
+kwords["business"] = ["business", "commerce"]
+
 
 def getTastes(userId):
     out = "Tes centres d'interets:\n"
@@ -20,11 +23,19 @@ def getTastes(userId):
 
 
 def addTaste(userId, taste):
+    for k, v in kwords.items():
+        if taste.lower() in v:
+            db.tastes.update_one({'userId': userId}, {'$addToSet': {'taste': k}}, True)
+            return "Centre d'interet ajouté !"
     db.tastes.update_one({'userId': userId}, {'$addToSet': {'taste': taste}}, True)
     return "Centre d'interet ajouté !"
 
 
 def removeTaste(userId, taste):
+    for k, v in kwords.items():
+        if taste.lower() in v:
+            db.tastes.update_one({'userId': userId}, {'$pull': {'taste': k}})
+            return "Centre d'interet supprimé !"
     db.tastes.update_one({'userId': userId}, {'$pull': {'taste': taste}})
     return "Centre d'interet supprimé !"
 

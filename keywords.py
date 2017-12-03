@@ -1,9 +1,10 @@
 import json
 import event
+import os
 
 ev = event.EventAPI()
 
-DATA_CITIES_NAME = "data/cities.json"
+DATA_CITIES_NAME = os.path.join(os.path.dirname(__file__), "data/cities.json")
 
 
 class SentenceType(enumerate):

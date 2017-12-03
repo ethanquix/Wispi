@@ -26,6 +26,8 @@ log.setLevel(logging.ERROR)
 
 BANNED_USERNAME = ["1492060920843672"]
 
+GET_STARTED = "GET_STARTED"
+
 page = Page(secret.PAGE_ACCESS_TOKEN)
 
 ev = event.EventAPI()
@@ -103,6 +105,9 @@ def webhook():
                         message_text = messaging_event["postback"]["payload"]
 
                         alog.warning("Receive postback " + sender_id + " " + message_text)
+                        if message_text == GET_STARTED:
+                            handleMessage.sendHelp(sender_id, page)
+                            continue
 
                         if sender_id not in BANNED_USERNAME:
                             _thread.start_new_thread(handleMessage.handle, (sender_id, message_text, page))
@@ -113,15 +118,14 @@ def webhook():
         print("-" * 20)
         traceback.print_exc(file=sys.stdout)
         print("-" * 20)
+        page.send(sender_id, "Il y a eu une erreur désolé")
 
     return "ok", 200
 
 
-def log(msg, *args, **kwargs):
-    print(msg)
-    sys.stdout.flush()
-
-
 if __name__ == '__main__':
-    page.show_persistent_menu([Template.ButtonPostBack("Mes centres d'interets", "list")])
+    page.show_starting_button(GET_STARTED)
+    # page.hide_greeting()
+    page.greeting("Bievenue sur Wispi !\n Le bot intelligent qui cherche des evenements pour toi !\nMais te previent aussi des evènements autour de toi pourraient t'intéresser")
+    page.hide_persistent_menu()
     app.run(port=8042, debug=True)
