@@ -1,0 +1,3 @@
+wispi_db is the database, it should be copied into install-directory\bin\mysql\mysql-version\data\
+
+wispi is the website itself, it should be copied into install-directory\www\

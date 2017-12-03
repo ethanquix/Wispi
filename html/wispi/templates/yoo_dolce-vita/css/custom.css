@@ -1,0 +1,26 @@
+/* Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+/* ========================================================================
+   Use this file to add custom CSS easily
+ ========================================================================== */
+
+@media (min-width: 1300px) {
+	div#tm-top-b {
+		background-image: none !important;
+		padding: 30px 0;
+	}
+	div#tm-top-b .uk-container {
+		padding: 0;
+	}
+}
+
+@media (min-width: 768px) {
+	.tm-headerbar .tm-logo {
+		padding: 15px 30px 0 !important;
+	}
+}
+
+#tm-top-c p {
+	font-size: 20px;
+	font-weight: bold;
+}
