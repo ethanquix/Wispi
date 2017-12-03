@@ -6,8 +6,8 @@ python:
   - "3.6"
 
 install:
-  - pip install codecov
-  - pip install -r src/requirements.txt
+  - pip3 install codecov
+  - pip3 install -r src/requirements.txt
 
 script:
   - coverage run src/testAll.py
