@@ -1,0 +1,368 @@
+\begin{theindex}
+
+  \item {\+\_\+\+\_\+init\+\_\+\+\_\+}
+    \subitem {event\+::\+Event\+A\+PI}, 20
+    \subitem {eventful\+\_\+api\+\_\+implem\+\_\+perso\+::\+A\+PI}, 17
+    \subitem {keywords\+::\+Wispi\+Keywords}, 25
+
+  \indexspace
+
+  \item {A\+D\+D\+\_\+\+T\+A\+S\+TE}
+    \subitem {keywords\+::\+Sentence\+Type}, 24
+  \item {A\+P\+I\+\_\+\+K\+E\+Y\+\_\+\+E\+V\+E\+N\+T\+F\+U\+LL}
+    \subitem {config}, 11
+    \subitem {event}, 11
+  \item {add\+Taste}
+    \subitem {keywords\+::\+Wispi\+Keywords}, 25
+    \subitem {tastes}, 15
+  \item {add\+Template}
+    \subitem {handle\+Message}, 12
+  \item {anal}
+    \subitem {app}, 9
+    \subitem {handle\+Message}, 12
+  \item {analyze\+Sentence}
+    \subitem {keywords\+::\+Wispi\+Keywords}, 25
+  \item {app}, 9
+    \subitem {anal}, 9
+    \subitem {app}, 10
+    \subitem {B\+A\+N\+N\+E\+D\+\_\+\+U\+S\+E\+R\+N\+A\+ME}, 10
+    \subitem {debug}, 10
+    \subitem {ev}, 10
+    \subitem {G\+E\+T\+\_\+\+S\+T\+A\+R\+T\+ED}, 10
+    \subitem {log}, 10
+    \subitem {methods}, 10
+    \subitem {options}, 10
+    \subitem {page}, 10
+    \subitem {port}, 10
+    \subitem {print\+Return\+KW}, 9
+    \subitem {verify}, 9
+    \subitem {webhook}, 9
+  \item {app.\+py}, 27
+  \item {app\+\_\+key}
+    \subitem {eventful\+\_\+api\+\_\+implem\+\_\+perso\+::\+A\+PI}, 17
+
+  \indexspace
+
+  \item {B\+A\+N\+N\+E\+D\+\_\+\+U\+S\+E\+R\+N\+A\+ME}
+    \subitem {app}, 10
+
+  \indexspace
+
+  \item {call}
+    \subitem {eventful\+\_\+api\+\_\+implem\+\_\+perso\+::\+A\+PI}, 17
+  \item {cities}
+    \subitem {keywords\+::\+Wispi\+Keywords}, 25
+  \item {cities\+Exist}
+    \subitem {keywords\+::\+Wispi\+Keywords}, 25
+  \item {cities\+Exist\+L\+O\+NG}
+    \subitem {keywords\+::\+Wispi\+Keywords}, 25
+  \item {client}
+    \subitem {handle\+Message}, 12
+    \subitem {process\+Tweet}, 14
+    \subitem {tastes}, 15
+  \item {config}, 10
+    \subitem {A\+P\+I\+\_\+\+K\+E\+Y\+\_\+\+E\+V\+E\+N\+T\+F\+U\+LL}, 
+		11
+    \subitem {D\+A\+T\+A\+D\+O\+G\+\_\+\+A\+P\+I\+\_\+\+K\+EY}, 11
+    \subitem {D\+E\+F\+A\+U\+L\+T\+\_\+\+I\+MG}, 11
+    \subitem {P\+A\+G\+E\+\_\+\+A\+C\+C\+E\+S\+S\+\_\+\+T\+O\+K\+EN}, 
+		11
+    \subitem {V\+E\+R\+I\+F\+Y\+\_\+\+T\+O\+K\+EN}, 11
+  \item {config.\+py}, 27
+  \item {currentdir}
+    \subitem {process\+Tweet}, 14
+
+  \indexspace
+
+  \item {D\+A\+T\+A\+\_\+\+C\+I\+T\+I\+E\+S\+\_\+\+N\+A\+ME}
+    \subitem {keywords}, 13
+  \item {D\+A\+T\+A\+D\+O\+G\+\_\+\+A\+P\+I\+\_\+\+K\+EY}
+    \subitem {config}, 11
+  \item {D\+E\+F\+A\+U\+L\+T\+\_\+\+I\+M\+G\+\_\+\+U\+RL}
+    \subitem {event}, 11
+  \item {D\+E\+F\+A\+U\+L\+T\+\_\+\+I\+MG}
+    \subitem {config}, 11
+  \item {D\+E\+L\+E\+T\+E\+\_\+\+T\+A\+S\+TE}
+    \subitem {keywords\+::\+Sentence\+Type}, 24
+  \item {data\+\_\+collect/search\+Image.\+py}, 28
+  \item {data\+\_\+process/process\+Tweet.\+py}, 28
+  \item {db}
+    \subitem {handle\+Message}, 13
+    \subitem {process\+Tweet}, 14
+    \subitem {tastes}, 15
+  \item {debug}
+    \subitem {app}, 10
+
+  \indexspace
+
+  \item {ev}
+    \subitem {app}, 10
+    \subitem {event}, 11
+    \subitem {handle\+Message}, 13
+    \subitem {keywords}, 13
+  \item {event}, 11
+    \subitem {A\+P\+I\+\_\+\+K\+E\+Y\+\_\+\+E\+V\+E\+N\+T\+F\+U\+LL}, 
+		11
+    \subitem {D\+E\+F\+A\+U\+L\+T\+\_\+\+I\+M\+G\+\_\+\+U\+RL}, 11
+    \subitem {ev}, 11
+    \subitem {event\+Adress}, 11
+    \subitem {event\+City}, 11
+    \subitem {event\+Date}, 11
+    \subitem {event\+Id}, 11
+    \subitem {event\+Link}, 12
+    \subitem {event\+Name}, 12
+    \subitem {tmp}, 12
+  \item {event.\+Event\+A\+PI}, 20
+  \item {event\+::\+Event\+A\+PI}
+    \subitem {\+\_\+\+\_\+init\+\_\+\+\_\+}, 20
+    \subitem {format\+Event}, 20
+    \subitem {get\+Event}, 21
+    \subitem {get\+Event\+By\+Location}, 21
+    \subitem {get\+Event\+Img}, 21
+    \subitem {get\+List\+Categories}, 21
+    \subitem {parse\+Title}, 21
+  \item {event\+Adress}
+    \subitem {event}, 11
+  \item {event\+City}
+    \subitem {event}, 11
+  \item {event\+Date}
+    \subitem {event}, 11
+  \item {event\+Id}
+    \subitem {event}, 11
+  \item {event\+Link}
+    \subitem {event}, 12
+  \item {event\+Manager/event.\+py}, 28
+  \item {event\+Manager/eventful\+\_\+api\+\_\+implem\+\_\+perso.\+py}, 
+		29
+  \item {event\+Name}
+    \subitem {event}, 12
+  \item {eventful\+\_\+api\+\_\+implem\+\_\+perso}, 12
+  \item {eventful\+\_\+api\+\_\+implem\+\_\+perso.\+A\+P\+I\+Error}, 18
+  \item {eventful\+\_\+api\+\_\+implem\+\_\+perso.\+A\+PI}, 17
+  \item {eventful\+\_\+api\+\_\+implem\+\_\+perso\+::\+A\+PI}
+    \subitem {\+\_\+\+\_\+init\+\_\+\+\_\+}, 17
+    \subitem {app\+\_\+key}, 17
+    \subitem {call}, 17
+    \subitem {http}, 17
+    \subitem {login}, 17
+    \subitem {server}, 17
+    \subitem {user}, 17
+    \subitem {user\+\_\+key}, 17
+
+  \indexspace
+
+  \item {fill\+Kwords}
+    \subitem {keywords\+::\+Wispi\+Keywords}, 25
+  \item {format\+Event}
+    \subitem {event\+::\+Event\+A\+PI}, 20
+
+  \indexspace
+
+  \item {G\+E\+T\+\_\+\+S\+T\+A\+R\+T\+ED}
+    \subitem {app}, 10
+  \item {G\+E\+T\+\_\+\+T\+A\+S\+TE}
+    \subitem {keywords\+::\+Sentence\+Type}, 24
+  \item {get\+\_\+soup}
+    \subitem {search\+Image}, 14
+  \item {get\+Event}
+    \subitem {event\+::\+Event\+A\+PI}, 21
+  \item {get\+Event\+By\+Location}
+    \subitem {event\+::\+Event\+A\+PI}, 21
+  \item {get\+Event\+Img}
+    \subitem {event\+::\+Event\+A\+PI}, 21
+  \item {get\+Image\+Url}
+    \subitem {search\+Image}, 14
+  \item {get\+List\+Categories}
+    \subitem {event\+::\+Event\+A\+PI}, 21
+  \item {get\+Taste}
+    \subitem {keywords\+::\+Wispi\+Keywords}, 25
+  \item {get\+Tastes}
+    \subitem {tastes}, 15
+
+  \indexspace
+
+  \item {handle}
+    \subitem {handle\+Message}, 12
+  \item {handle\+Location}
+    \subitem {handle\+Message}, 12
+  \item {handle\+Message}, 12
+    \subitem {add\+Template}, 12
+    \subitem {anal}, 12
+    \subitem {client}, 12
+    \subitem {db}, 13
+    \subitem {ev}, 13
+    \subitem {handle}, 12
+    \subitem {handle\+Location}, 12
+    \subitem {send\+Help}, 12
+  \item {http}
+    \subitem {eventful\+\_\+api\+\_\+implem\+\_\+perso\+::\+A\+PI}, 17
+
+  \indexspace
+
+  \item {interests/tastes.\+py}, 29
+  \item {is\+Taste}
+    \subitem {keywords\+::\+Wispi\+Keywords}, 25
+
+  \indexspace
+
+  \item {keywords}, 13
+    \subitem {D\+A\+T\+A\+\_\+\+C\+I\+T\+I\+E\+S\+\_\+\+N\+A\+ME}, 13
+    \subitem {ev}, 13
+    \subitem {w}, 13
+  \item {keywords.\+Sentence\+Type}, 23
+  \item {keywords.\+Wispi\+Keywords}, 24
+  \item {keywords\+::\+Sentence\+Type}
+    \subitem {A\+D\+D\+\_\+\+T\+A\+S\+TE}, 24
+    \subitem {D\+E\+L\+E\+T\+E\+\_\+\+T\+A\+S\+TE}, 24
+    \subitem {G\+E\+T\+\_\+\+T\+A\+S\+TE}, 24
+    \subitem {S\+E\+A\+R\+C\+H\+\_\+\+E\+V\+E\+NT}, 24
+  \item {keywords\+::\+Wispi\+Keywords}
+    \subitem {\+\_\+\+\_\+init\+\_\+\+\_\+}, 25
+    \subitem {add\+Taste}, 25
+    \subitem {analyze\+Sentence}, 25
+    \subitem {cities}, 25
+    \subitem {cities\+Exist}, 25
+    \subitem {cities\+Exist\+L\+O\+NG}, 25
+    \subitem {fill\+Kwords}, 25
+    \subitem {get\+Taste}, 25
+    \subitem {is\+Taste}, 25
+    \subitem {kwords}, 25
+    \subitem {parse\+Cities}, 25
+    \subitem {remove\+Taste}, 25
+    \subitem {taste\+Epur}, 25
+    \subitem {word\+Is\+Topic}, 25
+  \item {kwords}
+    \subitem {keywords\+::\+Wispi\+Keywords}, 25
+    \subitem {tastes}, 15
+
+  \indexspace
+
+  \item {log}
+    \subitem {app}, 10
+  \item {login}
+    \subitem {eventful\+\_\+api\+\_\+implem\+\_\+perso\+::\+A\+PI}, 17
+
+  \indexspace
+
+  \item {messages/handle\+Message.\+py}, 30
+  \item {messages/keywords.\+py}, 30
+  \item {methods}
+    \subitem {app}, 10
+
+  \indexspace
+
+  \item {options}
+    \subitem {app}, 10
+
+  \indexspace
+
+  \item {P\+A\+G\+E\+\_\+\+A\+C\+C\+E\+S\+S\+\_\+\+T\+O\+K\+EN}
+    \subitem {config}, 11
+  \item {page}
+    \subitem {app}, 10
+    \subitem {process\+Tweet}, 14
+  \item {parentdir}
+    \subitem {process\+Tweet}, 14
+  \item {parse\+Cities}
+    \subitem {keywords\+::\+Wispi\+Keywords}, 25
+  \item {parse\+Title}
+    \subitem {event\+::\+Event\+A\+PI}, 21
+  \item {port}
+    \subitem {app}, 10
+  \item {print\+Return\+KW}
+    \subitem {app}, 9
+  \item {process}
+    \subitem {process\+Tweet}, 14
+  \item {process\+Tweet}, 13
+    \subitem {client}, 14
+    \subitem {currentdir}, 14
+    \subitem {db}, 14
+    \subitem {page}, 14
+    \subitem {parentdir}, 14
+    \subitem {process}, 14
+
+  \indexspace
+
+  \item {remove\+Taste}
+    \subitem {keywords\+::\+Wispi\+Keywords}, 25
+    \subitem {tastes}, 15
+
+  \indexspace
+
+  \item {S\+E\+A\+R\+C\+H\+\_\+\+E\+V\+E\+NT}
+    \subitem {keywords\+::\+Sentence\+Type}, 24
+  \item {search\+Image}, 14
+    \subitem {get\+\_\+soup}, 14
+    \subitem {get\+Image\+Url}, 14
+  \item {send\+Help}
+    \subitem {handle\+Message}, 12
+  \item {server}
+    \subitem {eventful\+\_\+api\+\_\+implem\+\_\+perso\+::\+A\+PI}, 17
+
+  \indexspace
+
+  \item {taste\+Epur}
+    \subitem {keywords\+::\+Wispi\+Keywords}, 25
+  \item {tastes}, 14
+    \subitem {add\+Taste}, 15
+    \subitem {client}, 15
+    \subitem {db}, 15
+    \subitem {get\+Tastes}, 15
+    \subitem {kwords}, 15
+    \subitem {remove\+Taste}, 15
+  \item {test\+All}, 15
+  \item {test\+All.\+Data\+Collect}, 19
+  \item {test\+All.\+Event\+Full}, 21
+  \item {test\+All.\+Event\+Full\+A\+PI}, 22
+  \item {test\+All.\+py}, 30
+  \item {test\+All\+::\+Data\+Collect}
+    \subitem {test\+Get\+Result}, 19
+    \subitem {test\+Is\+An\+I\+MG}, 19
+    \subitem {test\+Is\+Result\+I\+MG}, 19
+  \item {test\+All\+::\+Event\+Full}
+    \subitem {test\+Get\+Categories}, 22
+    \subitem {test\+Get\+Event\+In\+Paris}, 22
+  \item {test\+All\+::\+Event\+Full\+A\+PI}
+    \subitem {test\+Good\+A\+P\+I\+Call}, 23
+    \subitem {test\+Wrong\+A\+P\+I\+Call}, 23
+  \item {test\+Get\+Categories}
+    \subitem {test\+All\+::\+Event\+Full}, 22
+  \item {test\+Get\+Event\+In\+Paris}
+    \subitem {test\+All\+::\+Event\+Full}, 22
+  \item {test\+Get\+Result}
+    \subitem {test\+All\+::\+Data\+Collect}, 19
+  \item {test\+Good\+A\+P\+I\+Call}
+    \subitem {test\+All\+::\+Event\+Full\+A\+PI}, 23
+  \item {test\+Is\+An\+I\+MG}
+    \subitem {test\+All\+::\+Data\+Collect}, 19
+  \item {test\+Is\+Result\+I\+MG}
+    \subitem {test\+All\+::\+Data\+Collect}, 19
+  \item {test\+Wrong\+A\+P\+I\+Call}
+    \subitem {test\+All\+::\+Event\+Full\+A\+PI}, 23
+  \item {tmp}
+    \subitem {event}, 12
+
+  \indexspace
+
+  \item {user}
+    \subitem {eventful\+\_\+api\+\_\+implem\+\_\+perso\+::\+A\+PI}, 17
+  \item {user\+\_\+key}
+    \subitem {eventful\+\_\+api\+\_\+implem\+\_\+perso\+::\+A\+PI}, 17
+
+  \indexspace
+
+  \item {V\+E\+R\+I\+F\+Y\+\_\+\+T\+O\+K\+EN}
+    \subitem {config}, 11
+  \item {verify}
+    \subitem {app}, 9
+
+  \indexspace
+
+  \item {w}
+    \subitem {keywords}, 13
+  \item {webhook}
+    \subitem {app}, 9
+  \item {word\+Is\+Topic}
+    \subitem {keywords\+::\+Wispi\+Keywords}, 25
+
+\end{theindex}
