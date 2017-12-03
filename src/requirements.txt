@@ -10,3 +10,4 @@ click==6.6
 requests==2.10.0
 beautifulsoup4
 httplib2
+datadog

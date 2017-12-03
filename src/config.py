@@ -3,3 +3,6 @@ PAGE_ACCESS_TOKEN = "EAAb6bzYnwgQBAJZBM4RCaAZBIRn9Koqhr1DbBsUf5GhdMuxbTOBnl3xZBw
 DEFAULT_IMG = "http://www.orangefairs.com/images/resource/event-manegment.jpg"
 
 API_KEY_EVENTFULL = 'xxML6LLwcZLP7GfH'
+
+DATADOG_API_KEY = "17745844a9a7f0e0f69094944c962319"
+DATADOG_APP_KEY = "dc3d50e4dd8b8ada6c8b4481e2d0d087492725ad"

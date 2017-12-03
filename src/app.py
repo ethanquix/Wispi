@@ -29,6 +29,15 @@ page = Page(config.PAGE_ACCESS_TOKEN)
 ev = event.EventAPI()
 anal = messages.keywords.WispiKeywords()
 
+from datadog import statsd
+from datadog import initialize
+
+options = {
+    'api_key': config.DATADOG_API_KEY,
+    'app_key':config.DATADOG_APP_KEY
+}
+
+initialize(**options)
 
 @app.route('/', methods=['GET'])
 def verify():
@@ -62,11 +71,20 @@ def webhook():
                     continue
                 for messaging_event in entry["messaging"]:
                     if messaging_event.get("message"):
+
+                        statsd.increment('messages_received')
+
                         if "is_echo" in messaging_event["message"]:
+
+                            statsd.increment('messages_echo')
+
                             continue
                         sender_id = messaging_event["sender"]["id"]
 
                         if "attachments" in messaging_event["message"]:
+
+                            statsd.increment('messages_location')
+
                             coord = ""
                             if "payload" in messaging_event["message"]["attachments"][0]:
                                 payload = messaging_event["message"]["attachments"][0]["payload"]
@@ -102,6 +120,7 @@ def webhook():
 
                         alog.warning("Receive postback " + sender_id + " " + message_text)
                         if message_text == GET_STARTED:
+                            statsd.increment('get_started')
                             handleMessage.sendHelp(sender_id, page)
                             continue
 
