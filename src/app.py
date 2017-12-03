@@ -34,10 +34,11 @@ from datadog import initialize
 
 options = {
     'api_key': config.DATADOG_API_KEY,
-    'app_key':config.DATADOG_APP_KEY
+    'app_key': config.DATADOG_APP_KEY
 }
 
 initialize(**options)
+
 
 @app.route('/', methods=['GET'])
 def verify():
@@ -75,7 +76,6 @@ def webhook():
                         statsd.increment('message.received')
 
                         if "is_echo" in messaging_event["message"]:
-
                             statsd.increment('message.echo')
 
                             continue
@@ -89,7 +89,8 @@ def webhook():
                             if "payload" in messaging_event["message"]["attachments"][0]:
                                 payload = messaging_event["message"]["attachments"][0]["payload"]
                                 if "coordinates" in payload:
-                                    coord = str(payload["coordinates"]["lat"]) + "," + str(payload["coordinates"]["long"])
+                                    coord = str(payload["coordinates"]["lat"]) + "," + str(
+                                        payload["coordinates"]["long"])
                                     alog.warning("Received coordinates: " + coord)
                                 else:
                                     continue

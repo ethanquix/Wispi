@@ -21,6 +21,7 @@
  > Leur trouver une image  
  > Les rendre a l'utilisateur en utilisant les fonctionnalitées de Facebook  
  > Sauvegarder ses choix  
+ > Analyser des tweets, extraire les informations pertinentes et les envoyer
  > Executer des Unit Test  
  > Deployer  
  > S'organiser  
