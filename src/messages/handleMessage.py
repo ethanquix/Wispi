@@ -10,8 +10,13 @@ from eventManager import event
 from interests import tastes
 from messages import keywords
 
+from pymongo import MongoClient
+
 ev = event.EventAPI()
 anal = keywords.WispiKeywords()
+
+client = MongoClient("localhost")
+db = client.wispi
 
 
 def addTemplate(eventName, eventDate, eventLink, eventAdress, eventCity, idEvent):
@@ -75,6 +80,10 @@ def handle(user, msg, page):
             page.send(user, out)
             return
         else:
+
+            if theme is not None:
+                db.tastes.update_one({'userId': user}, {'$addToSet': {'previsionTheme': theme, 'previsionCity': city}}, True)
+
             getEv = ev.getEvent(city, '5', theme)
             if getEv is None:
                 page.send(user, "Désolé il n'y a aucun evenement a cet endroit")

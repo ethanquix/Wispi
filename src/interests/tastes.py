@@ -4,7 +4,7 @@ client = MongoClient("localhost")
 db = client.wispi
 
 kwords = dict()
-kwords["business"] = ["business", "commerce"]
+kwords["business"] = ["business", "commerce", "edhec", "finance", "entrepreneur", "finance"]
 
 
 def getTastes(userId):
