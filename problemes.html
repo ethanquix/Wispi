@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Wispi</title>
+
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/css/highlight.tomorrow-night.css">
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+
+        <header class="navbar navbar-default navbar-fixed-top">
+
+            <a class="navbar-brand" href="/">
+                Wispi
+                <small class="hidden-xs hidden-sm">
+                    Messenger BOT which gather social events around you
+                </small>
+            </a>
+
+            
+        </header>
+
+        <main class="container-fluid">
+            <div class="row">
+
+                
+                    <nav id="sidebar" class="col-sm-3 col-lg-2" role="navigation">
+
+                                                    <p class="text-muted">
+                                Documentation
+                            </p>
+
+                            <ul class="nav nav-pills nav-stacked">
+                                                                    <li class="">
+                                        <a href="/index.html">
+                                            Home
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="/fonctionnalites.html">
+                                            Fonctionnalites
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="/install.html">
+                                            Install
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="/problemes.html">
+                                            Problèmes rencontrés
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="/technologies.html">
+                                            Technologies
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="/use_case.html">
+                                            Cas d'utilisations
+                                        </a>
+                                    </li>
+                                                            </ul>
+                                                    <p class="text-muted">
+                                Other
+                            </p>
+
+                            <ul class="nav nav-pills nav-stacked">
+                                                                    <li class="">
+                                        <a href="http://wispi.tk">
+                                            Privacy
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="https://www.facebook.com/wispibot/">
+                                            Wispy Bot
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        
+                    </nav>
+
+                
+                <section class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
+                    <h1 id="problmes">Problèmes</h1>
+<p>Nous avons rencontrés différents problèmes durant le dévelloppement de notre Bot.</p>
+<h2 id="le-dploiement-du-serveur">Le déploiement du serveur</h2>
+<p><strong>Problème</strong></p>
+<p>Pour que notre Bot marche, Facebook nous a demandé d'avoir notre propre serveur, un nom de domaine, et un certificat SSL pour le HTTPS</p>
+<p><strong>Solution</strong></p>
+<p>Nous avons du acheter un nom de domaine (namecheap), louer un serveur VPS (digitalocean)<br />
+Nous avons ensuite utilisé letsencrypt pour générer les certificats SSL, Nginx en tant que reverse proxy et datadog en tant que monitoring</p>
+<h2 id="rcupration-des-gouts-de-lutilisateur">Récupération des gouts de l'utilisateur</h2>
+<p><strong>Problème</strong></p>
+<p>Notre bot devait aller récupérer sur les réseaux sociaux les gouts de l'utilisateur et ainsi déterminer ses centres d'interet.</p>
+<p>Pour avoir accès a cette fonctionnalité, nous n'avions qu'a demander a Facebook<br />
+Seul problème, pour avois accès a ces infos il faut demander a Facebook de 'review' notre application et nous donner son feu vert.<br />
+Malheureusement pour cela, il faut déjà avoir une application fonctionnelle, ce que nous n'avions pas 2 semaines (temps de la review) avant le rendu.</p>
+<p><strong>Solution</strong></p>
+<p>Nous avons donc crée un menu pour demander a l'utilisateur de rentrer manuellement ses gouts.
+De plus, nous mémorisons les recherches de l'utilisateur afin de par la suite pouvoir déterminer ses gouts
+<img src="imgs/prevision.png" alt="prevision" /></p>
+<h2 id="api-de-recherche-dimage-extrmement-lente">Api de recherche d'image extrèmement lente</h2>
+<p><strong>Problème</strong></p>
+<p>L'api de recherche d'évènements nous retourne le titre de l'évènement.<br />
+Nous voulions aussi en afficher une image a l'utilisateur<br />
+Au début nous utilisions Google Image qui s'est avéré bien trop long par la suite</p>
+<p><strong>Solution</strong></p>
+<p>Nous sommes passés sur Qwant qui offre une api bien plus rapide et plus simple.
+Ce n'est malheureusement pas une solution viable car au bout de ~1000 requetes / jour nous sommes stoppés pendant 24h</p>
+                </section>
+
+            </div>
+        </main>
+
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="//yandex.st/highlightjs/7.5/highlight.min.js"></script>
+
+        <script>
+            $(function() {
+                $("section>h1").wrap('<div class="page-header" />');
+                // Syntax highlighting
+                hljs.initHighlightingOnLoad();
+            });
+        </script>
+
+    </body>
+</html>

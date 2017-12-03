@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Wispi</title>
+
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/css/highlight.tomorrow-night.css">
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+
+        <header class="navbar navbar-default navbar-fixed-top">
+
+            <a class="navbar-brand" href="/">
+                Wispi
+                <small class="hidden-xs hidden-sm">
+                    Messenger BOT which gather social events around you
+                </small>
+            </a>
+
+            
+        </header>
+
+        <main class="container-fluid">
+            <div class="row">
+
+                
+                    <nav id="sidebar" class="col-sm-3 col-lg-2" role="navigation">
+
+                                                    <p class="text-muted">
+                                Documentation
+                            </p>
+
+                            <ul class="nav nav-pills nav-stacked">
+                                                                    <li class="">
+                                        <a href="/index.html">
+                                            Home
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="/fonctionnalites.html">
+                                            Fonctionnalites
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="/install.html">
+                                            Install
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="/problemes.html">
+                                            Problèmes rencontrés
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="/technologies.html">
+                                            Technologies
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="/use_case.html">
+                                            Cas d'utilisations
+                                        </a>
+                                    </li>
+                                                            </ul>
+                                                    <p class="text-muted">
+                                Other
+                            </p>
+
+                            <ul class="nav nav-pills nav-stacked">
+                                                                    <li class="">
+                                        <a href="http://wispi.tk">
+                                            Privacy
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="https://www.facebook.com/wispibot/">
+                                            Wispy Bot
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        
+                    </nav>
+
+                
+                <section class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
+                    <h1 id="technologies-utilises">Technologies utilisées:</h1>
+<h2 id="sommaire">Sommaire</h2>
+<blockquote>
+<p><a href="#Introduction">Introduction</a><br />
+<a href="#Choix_du_langage">Choix du langage</a><br />
+<a href="#Choix_des_modules_Python">Choix des modules Python</a><br />
+<a href="#Choix_des_API">Choix des API</a><br />
+<a href="#bdd">Bade de données</a><br />
+<a href="#Unit_test">Unit test</a><br />
+<a href="#Deploiement">Deploiement</a><br />
+<a href="#Agile_Dev">Agile Dev</a><br />
+<a href="#Documentation">Documentation</a>
+<a href="#Autre">Autres</a></p>
+</blockquote>
+<h2 id="introduction">Introduction <a id="Introduction"></a></h2>
+<p>Notre projet consiste en un BOT Messenger. Les raisons de ce choix sont expliquées dans le document 'Détail des différentes étapes'</p>
+<p>Il nous fallait pouvoir:</p>
+<blockquote>
+<p>Récuperer les messages envoyé par l'utilisateur a notre page<br />
+Analyser le message<br />
+Chercher les évènements correspondant a sa recherche<br />
+Leur trouver une image<br />
+Les rendre a l'utilisateur en utilisant les fonctionnalitées de Facebook<br />
+Sauvegarder ses choix<br />
+Analyser des tweets, extraire les informations pertinentes et les envoyer
+Executer des Unit Test<br />
+Deployer<br />
+S'organiser<br />
+Utiliser du Code Review</p>
+</blockquote>
+<p>Pour réaliser ce BOT Messenger, plusieurs options s'offraient a nous:</p>
+<ul>
+<li>Utiliser une solution web déjà faite consistant majoritairement a du glissé-déposé</li>
+<li>
+<p>Le faire entièrement a la main</p>
+<p>Afin d'avoir le plus de possibilitées ouvertes et ne pas être limités, nous avons décidé de le faire entièrement a la main.</p>
+</li>
+</ul>
+<h2 id="choix-du-langage">Choix du langage <a id="Choix_du_langage"></a></h2>
+<p>Après nous être documentés sur internet, nous avons décidé d'utiliser Python. En effet, la majorité de l'équipe connaissait déjà ce langage.
+&amp;
+Les performances de ce langage convenaient parfaitement pour cette utilisation, nous ne cherchons pas a faire du code critique qui s'éxècute en quelques millièmes de secondes.</p>
+<p>Nous voulions de plus intégrer de nombreuses fonctionnalitées rapidement. Ce langage haut niveau était donc parfait, nous aurions mis plusieurs mois avec un langage bas niveau comme le CPP</p>
+<h2 id="choix-des-modules-python">Choix des modules Python <a id="Choix_des_modules_Python"></a></h2>
+<p>Python possède une communauté très active qui a ainsi dévellopée de nombreux modules.</p>
+<p>Nous avons décidé d'en utiliser certains:</p>
+<ul>
+<li>
+<p><a href="http://arrow.readthedocs.io/en/latest/">Arrow</a> | Permet de mieux parser les dates</p>
+<pre><code>t = arrow.get('23-12-2017')
+t.humanize()
+
+[2 days before christmas]</code></pre>
+<p>Nous nous en servons ainsi pour parser les dates des evènements et les rendre sous un format plus facilement lisible pour un humain / notre utilisateur</p>
+</li>
+<li>
+<p><a href="http://flask.pocoo.org">Flask</a> | Un framework Web</p>
+<p>Flask nous permet de facilement récupérer les requètes de facebook (reception d'un message).</p>
+<p>C'est un Framework petit, léger et robuste, nous l'avons donc choisit car nous n'en demandions pas plus</p>
+</li>
+<li>
+<p><a href="https://github.com/conbus/fbmq">FBMQ</a> | FBMQ Nous permet de formater les messages envoyés a Facebook</p>
+<p>Messenger offre de grandes possibilitées de customisation des messages (par exemple quick replies ou bouttons).
+Ce module nous permet de facilement demander cela a Messenger et nous évite d'écrire et formater de longues requètes HTTP.</p>
+<pre><code>from fbmq import Page
+page = Page('SECRET_KEY')
+
+Exemple ici nous allons afficher du texte:
+
+page.send(recipient_id, "hello world!")
+
+et ici une image:
+
+page.send(recipient_id, Attachment.Image(image_url))</code></pre>
+</li>
+</ul>
+<h2 id="choix-des-api">Choix des API <a id="Choix_des_API"></a></h2>
+<p>Il nous faut maintenant choisir des API pour remplir deux taches:</p>
+<ul>
+<li>Récupérer une liste d'évenements</li>
+<li>
+<p>Récupérer des images correspondants a cex évènements</p>
+<p><strong>Evenements</strong></p>
+<p>De nombreuses API étaient disponibles, Bandsintown, OpenAgenda, Facebook.</p>
+<p>Malheureusement, la plupart d'entre elles ont leurs désavantages.</p>
+<p>Trop cher pour certaines jusqu'a très limitées pour d'autres (Facebook)</p>
+<p>Nous avons donc décidés d'utiliser EventFull. Leur api était assez complète et simple d'utilisation.
+Gratuite, illimitée, et disposant de la plupart des évènements actuels.</p>
+<p><strong>Images</strong></p>
+<p>Une fois nos évènements récupérés il nous fallait maintenant en récupérer des images pour illustrer tout cela.</p>
+<p>Nous avions commencé par utilier l'API de Google Images.<br />
+Malheureusement, nous nous sommes vites rendu compte que leur api était très lente. (de l'ordre de 10-20 secondes pour une image). Ce qui était bien sur innaceptable.</p>
+<p>Nous avons donc changé pour Qwant ! Le navigateur francais qui propose une api de recherche d'image extrèmement rapide.</p>
+</li>
+</ul>
+<h2 id="base-de-donnes">Base de données <a id="bdd"></a></h2>
+<p>Nous avons décidé d'utiliser MongoDB en tant que base de données. C'est la plus simple a mettre en place, et la plus adaptée en cas de montée en charge rapide.<br />
+Le format NoSQL permet aussi de restructurer le schéma a la volée ce qui était important car nous voulions pouvoir évoluer vite et changer ce dernier sans avoir a tout changer dans le code</p>
+<p><img src="imgs/mongo.png" alt="MongoDB" /></p>
+<h2 id="unit-test">Unit test <a id="Unit_test"></a></h2>
+<p>Les unit test sont l'unes des meilleures manières de s'assurer que notre code marche toujours après en avoir modifié une partie qui pourrait déteindre sur une autre.</p>
+<p>Pour cela, nous les avons pris très au sérieux. Nous avons essayé d'avoir 100% de coverage et de tester absolument tout ce qui était possible.</p>
+<p><img src="imgs/unit_tests.png" alt="Tests" /></p>
+<p>Mais nous avons aussi voulu aller plus loin.
+Nous utilisons Travis afin de tester notre code.</p>
+<p>Nous l'avons lié a notre compte github ainsi a chaque push, Travis éxécute tous les tests unitaires présents.</p>
+<p><img src="imgs/travis.png" alt="Travis" /></p>
+<p>Mais ce n'est pas tout. Nous avons aussi relié Travis a Codecov qui va ainsi nous générer un rendu du code coverage de notre code.</p>
+<p><img src="imgs/codecov.png" alt="Codecov" /></p>
+<p>Cela nous a permis de nous rendre compte en temps réel des problèmes possibles et du code que l'on aurait pu avoir cassé</p>
+<h2 id="deploiement">Deploiement <a id="Deploiement"></a></h2>
+<p><strong>Les obligations</strong></p>
+<p>Pour déployer notre bot, Facebook demandait a ce qu'on l'héberge sur un serveur distant (non localhost), possédant un nom de domaine, et surtout sécurisé par HTTPS.</p>
+<p>Nous avons donc acheté un nom de domaine (wispi.tk) et avons ensuite utilisé <a href="https://www.digitalocean.com/">Digital Ocean</a> pour héberger notre bot.</p>
+<blockquote>
+<p>Nous avons choisi un &quot;droplet&quot; a 512mb de Ram et 1VCPU pour 5€/mois qui est amplement suffisant pour faire tourner notre bot</p>
+</blockquote>
+<p>Pour générer le certificat https nous avons utilisé <a href="https://letsencrypt.org/">Let's Encrypt</a> qui nous a permis de générer un certificat SSL gratuitement et facilement</p>
+<blockquote>
+<p><code>$ letsencrypt nginx</code></p>
+</blockquote>
+<p>Comme proxy inverse, nous utilisé <a href="https://www.nginx.com/">Nginx</a> pour sa facilité d'utilisation</p>
+<p>Pour monitorer notre application ainsi que notre serveur, nous avons utilisé <a href="https://datadoghq.com">Datadog</a> qui nous permet de voir en temps réel ce qui se passe mais aussi de définir des trigger dans le code afin d'obtenir différentes metrics<br />
+Il permet aussi de monitorer le serveur pour nous prévenir si ce dernier crash. Cela permet aussi de controller la consommation en ressources de notre programme</p>
+<p><img src="imgs/datadog.png" alt="Datadog" /></p>
+<h2 id="agile-dev">Agile Dev <a id="Agile_Dev"></a></h2>
+<p>Entrainés par nos stage, et motivés par le gain de productivité que cela apportait, nous avons respecté les principes du develloppement Agile.</p>
+<p>Ainsi, nous avons utilisé Youtrack afin de gérer les issues et le temps nécessaire, et upsource en tant qu'outil de code review.</p>
+<p>A chaque push, il fallait 2personnes qui approuvaient le code afin que ce dernier puisse être merge sur la branche Master.</p>
+<h2 id="documentation">Documentation <a id="Documentation"></a></h2>
+<p>La documentation a été faite en grande partie en Markdown.</p>
+<p>Le markdown est un format simple, ayant un joli rendu. Surtout, contrairement a un docuement Word, il n'y a aucun problème de compatibilité lors de l'édition de la documentation a plusieurs.</p>
+<p><a href="https://couscous.io">Couscous.io</a> nous permet de générer cette documentation facilement et de la rendre sur github.</p>
+<h2 id="autre">Autre <a id="Autre"></a></h2>
+<p>Nous avons aussi utilisé heroku afin de facilement pouvoir déployer notre bot sans avoir besoin d'avoir son propre serveur.</p>
+<p>Un Procfile est disponible a la racine, il suffit donc de déployer cette application avec heroku et elle sera instantanément prête a l'emploi</p>
+<p><img src="imgs/heroku.png" alt="Heroku" /></p>
+                </section>
+
+            </div>
+        </main>
+
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="//yandex.st/highlightjs/7.5/highlight.min.js"></script>
+
+        <script>
+            $(function() {
+                $("section>h1").wrap('<div class="page-header" />');
+                // Syntax highlighting
+                hljs.initHighlightingOnLoad();
+            });
+        </script>
+
+    </body>
+</html>
