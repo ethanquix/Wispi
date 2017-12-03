@@ -9,20 +9,28 @@ import urllib.parse
 import event
 import searchImage
 
+import arrow
+
 ev = event.EventAPI()
 anal = keywords.WispiKeywords()
 
 
 def addTemplate(eventName, eventDate, eventLink, eventAdress, eventCity):
-    # alog.warning("Entering in add template")
-    # alog.info("Event address: " + eventAdress)
+    alog.warning("Entering in add template")
+    alog.info("Event address: " + eventAdress)
+    urlOfAddress = "http://wispi.tk"
+    try:
+        urlOfAddress = "https://www.google.fr/maps/place/" + urllib.parse.quote(eventAdress)
+    except Exception as e:
+        alog.error("Cant parse adress " + eventAdress + str(e))
+
     return Template.GenericElement(eventName,
-                                   subtitle=eventDate,
+                                   subtitle=arrow.get(eventDate).humanize(),
                                    item_url=eventLink,
-                                   image_url=searchImage.getImageUrl(eventName + " " + eventCity),
+                                   # image_url=searchImage.getImageUrl(eventName + " " + eventCity),
+                                   image_url="https://images.pexels.com/photos/5156/people-eiffel-tower-lights-night.jpg",
                                    buttons=[
-                                       Template.ButtonWeb("Open in Map",
-                                                          "https://www.google.fr/maps/place/" + urllib.parse.quote(eventAdress)),
+                                       Template.ButtonWeb("Open in Map", urlOfAddress),
                                        Template.ButtonWeb("Open Event", eventLink),
                                        Template.ButtonShare()
                                    ])
