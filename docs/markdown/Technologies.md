@@ -116,8 +116,19 @@
 
  Nous l'avons lié a notre compte github ainsi a chaque push, Travis éxécutait tous les tests unitaires présents.
 
- Mais ce n'est pas tout.
+ Mais ce n'est pas tout. Nous avons aussi relié Travis a Codecov qui va ainsi nous générer un rendu du code coverage de notre code.
+
+ Cela nous a permis de nous rendre compte en temps réel des problèmes possibles et du code que l'on aurait pu avoir cassé
 
 ## Deploiement <a id="Deploiement"></a>
  **Les obligations**
-  Pour déployer notre bot
+
+  Pour déployer notre bot, Facebook demandait a ce qu'on l'héberge sur un serveur distant (non localhost), possédant un nom de domaine, et surtout sécurisé par HTTPS.
+
+  Nous avons donc acheté un nom de domaine (wispi.tk) et avons ensuite utilisé [Digital Ocean](https://www.digitalocean.com/) pour héberger notre bot.
+  > Nous avons choisi un "droplet" a 512mb de Ram et 1VCPU pour 5€/mois qui est amplement suffisant pour faire tourner notre bot
+
+  Pour générer le certificat https nous avons utilisé [Let's Encrypt](https://letsencrypt.org/) qui nous a permis de générer un certificat SSL gratuitement et facilement
+  > `$ letsencrypt nginx`
+
+  Enfin,
