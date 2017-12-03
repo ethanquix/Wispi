@@ -142,7 +142,7 @@
   Pour monitorer notre application ainsi que notre serveur, nous avons utilisé [Datadog](https://datadoghq.com) qui nous permet de voir en temps réel ce qui se passe mais aussi de définir des trigger dans le code afin d'obtenir différentes metrics  
   Il permet aussi de monitorer le serveur pour nous prévenir si ce dernier crash. Cela permet aussi de controller la consommation en ressources de notre programme
 
-  ![Datadog](/docs/markdown/imgs/datadog.png)
+  ![Datadog](imgs/datadog.png)
 
 ## Agile Dev
 
@@ -162,3 +162,7 @@
 ## Autre
 
  Nous avons aussi utilié heroku afin de facilement pouvoir déployer notre bot sans avoir besoin d'avoir son propre serveur.
+
+ Un Procfile est disponible a la racine, il suffit donc de déployer cette application avec heroku et elle sera instantanément prête a l'emploi
+
+ ![Heroku](imgs/heroku.png)
