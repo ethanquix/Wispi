@@ -145,3 +145,20 @@
   ![Datadog](/docs/markdown/imgs/datadog.png)
 
 ## Agile Dev
+
+ Entrainés par nos stage, et motivés par le gain de productivité que cela apportait, nous avons respecté les principes du develloppement Agile.
+
+ Ainsi, nous avons utilisé Youtrack afin de gérer les issues et le temps nécessaire, et upsource en tant qu'outil de code review.
+
+ A chaque push, il fallait 2personnes qui approuvaient le code afin que ce dernier puisse être merge sur la branche Master.
+
+## Documentation
+ La documentation a été faite en grande partie en Markdown.
+
+ Le markdown est un format simple, ayant un joli rendu. Surtout, contrairement a un docuement Word, il n'y a aucun problème de compatibilité lors de l'édition de la documentation a plusieurs.
+
+ [Couscous.io](https://couscous.io) nous permet de générer cette documentation facilement et de la rendre sur github.
+
+## Autre
+
+ Nous avons aussi utilié heroku afin de facilement pouvoir déployer notre bot sans avoir besoin d'avoir son propre serveur.
