@@ -108,7 +108,6 @@ def webhook():
                         alog.warning("Received message: " + message_text)
 
                         if sender_id not in BANNED_USERNAME:
-                            page.send(sender_id, Attachment.Image('https://i.imgur.com/rzucRZu.png'))
                             _thread.start_new_thread(handleMessage.handle, (sender_id, message_text, page))
                         else:
                             alog.warning("SENDER ID IN BANNED USERNAME")
