@@ -14,7 +14,7 @@ ev = event.EventAPI()
 anal = keywords.WispiKeywords()
 
 
-def addTemplate(eventName, eventDate, eventLink, eventAdress, eventCity):
+def addTemplate(eventName, eventDate, eventLink, eventAdress, eventCity, idEvent):
     if eventAdress is None:
         return
     urlOfAddress = "http://wispi.tk"
@@ -27,12 +27,25 @@ def addTemplate(eventName, eventDate, eventLink, eventAdress, eventCity):
                                    subtitle=arrow.get(eventDate).humanize(),
                                    item_url=eventLink,
                                    # image_url=searchImage.getImageUrl(eventName + " " + eventCity),
-                                   image_url="https://images.pexels.com/photos/5156/people-eiffel-tower-lights-night.jpg",
+                                   image_url=searchImage.getImageUrl(eventName),
                                    buttons=[
                                        Template.ButtonWeb("Open in Map", urlOfAddress),
                                        Template.ButtonWeb("Open Event", eventLink),
                                        Template.ButtonShare()
                                    ])
+
+
+def handleLocation(user, loc, page):
+    tList = []
+    getEv = ev.getEventByLocation(loc, '5')
+    if getEv is None:
+        page.send(user, "Désolé il n'y a aucun evenement a cet endroit")
+        return
+    for tmp in getEv:
+        eventName, eventDate, eventLink, eventAdress, eventCity, eventId = ev.formatEvent(tmp)
+        if eventAdress is not None:
+            tList.append(addTemplate(eventName, eventDate, eventLink, eventAdress, eventCity, eventId))
+    page.send(user, Template.Generic(tList))
 
 
 def handle(user, msg, page):
@@ -44,7 +57,6 @@ def handle(user, msg, page):
         tList = []
         if city is None:
             out = "Veuillez spécifier une ville"
-        if city is None and theme is None:
             page.send(user, out)
             return
         else:
@@ -53,9 +65,9 @@ def handle(user, msg, page):
                 page.send(user, "Désolé il n'y a aucun evenement a cet endroit")
                 return
             for tmp in getEv:
-                eventName, eventDate, eventLink, eventAdress, eventCity = ev.formatEvent(tmp)
+                eventName, eventDate, eventLink, eventAdress, eventCity,eventId = ev.formatEvent(tmp)
                 if eventAdress is not None:
-                    tList.append(addTemplate(eventName, eventDate, eventLink, eventAdress, eventCity))
+                    tList.append(addTemplate(eventName, eventDate, eventLink, eventAdress, eventCity, eventId))
             page.send(user, Template.Generic(tList))
 
     elif typeOfHandle == keywords.SentenceType.GET_TASTE:

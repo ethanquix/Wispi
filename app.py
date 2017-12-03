@@ -57,16 +57,37 @@ def printReturnKW(city, theme):
 def webhook():
     try:
         data = request.get_json()
-        # log(data)  # you may not want to log every incoming message in production, but it's good for testing
+
         if data["object"] == "page":
             for entry in data["entry"]:
+                if "messaging" not in entry:
+                    continue
                 for messaging_event in entry["messaging"]:
                     if messaging_event.get("message"):
-                        pprint.pprint(messaging_event)
                         if "is_echo" in messaging_event["message"]:
                             continue
                         sender_id = messaging_event["sender"]["id"]
-                        message_text = messaging_event["message"]["text"]  # the message's text
+
+                        if "attachments" in messaging_event["message"]:
+                            coord = ""
+                            if "payload" in messaging_event["message"]["attachments"][0]:
+                                payload = messaging_event["message"]["attachments"][0]["payload"]
+                                if "coordinates" in payload:
+                                    coord = str(payload["coordinates"]["lat"]) + "," + str(payload["coordinates"]["long"])
+                                    alog.warning("Received coordinates: " + coord)
+                                else:
+                                    continue
+                            else:
+                                continue
+
+                            if sender_id not in BANNED_USERNAME:
+                                _thread.start_new_thread(handleMessage.handleLocation, (sender_id, coord, page))
+                            else:
+                                alog.warning("SENDER ID IN BANNED USERNAME")
+
+                            continue
+
+                        message_text = messaging_event["message"]["text"]
                         alog.warning("Received message: " + message_text)
 
                         if sender_id not in BANNED_USERNAME:
@@ -74,14 +95,19 @@ def webhook():
                         else:
                             alog.warning("SENDER ID IN BANNED USERNAME")
 
-                    if messaging_event.get("delivery"):  # delivery confirmation
-                        pass
-
                     if messaging_event.get("optin"):  # optin confirmation
                         pass
 
-                    if messaging_event.get("postback"):  # user clicked/tapped "postback" button in earlier message
-                        pass
+                    if messaging_event.get("postback"):
+                        sender_id = messaging_event["sender"]["id"]
+                        message_text = messaging_event["postback"]["payload"]
+
+                        alog.warning("Receive postback " + sender_id + " " + message_text)
+
+                        if sender_id not in BANNED_USERNAME:
+                            _thread.start_new_thread(handleMessage.handle, (sender_id, message_text, page))
+                        else:
+                            alog.warning("SENDER ID IN BANNED USERNAME")
     except:
         print("Exception in user code:")
         print("-" * 20)
@@ -91,35 +117,11 @@ def webhook():
     return "ok", 200
 
 
-def send_message(recipient_id, message_text):
-    log("sending message to {recipient}: {text}".format(recipient=recipient_id, text=message_text))
-
-    params = {
-        "access_token": os.environ["PAGE_ACCESS_TOKEN"]
-    }
-    headers = {
-        "Content-Type": "application/json"
-    }
-    data = json.dumps({
-        "recipient": {
-            "id": recipient_id
-        },
-        "message": {
-            "text": message_text
-        }
-    })
-    r = requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=data)
-    if r.status_code != 200:
-        log("Status code != 200")
-        log(r.status_code)
-        log(r.text)
-
-
 def log(msg, *args, **kwargs):
     print(msg)
     sys.stdout.flush()
 
 
 if __name__ == '__main__':
-    page.show_persistent_menu([Template.ButtonWeb("Wispi", "http://wispi.tk")])
+    page.show_persistent_menu([Template.ButtonPostBack("Mes centres d'interets", "list")])
     app.run(port=8042, debug=True)

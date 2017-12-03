@@ -19,7 +19,7 @@ class WispiKeywords(object):
         self.cities = self.parseCities()
         self.addTaste = ["ajoute"]
         self.removeTaste = ["supprime", "enleve", "enlève"]
-        self.getTaste = ["list, liste"]
+        self.getTaste = ["list", "liste"]
 
     def fillKwords(self):
         self.kwords = dict()
@@ -103,3 +103,4 @@ if __name__ == '__main__':
     print(w.analyzeSentence("list moi mes interets"))
     print(w.analyzeSentence("ajoute business"))
     print(w.analyzeSentence("supprime sport"))
+    print(w.isTaste("list"))

@@ -12,6 +12,8 @@ def getTastes(userId):
         return "Tu n'a pas encore spécifié de centre d'interets"
     if 'taste' not in result:
         return "Tu n'a pas encore spécifié de centre d'interets"
+    if len(result['taste']) == 0:
+        return "Tu n'a pas encore spécifié de centre d'interets"
     for tmp in result['taste']:
         out += tmp + '\n'
     return out
