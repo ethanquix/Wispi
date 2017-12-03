@@ -1,23 +1,19 @@
 # -*- coding: utf-8 -*-
 
-import json
+import _thread
+import logging
 import os
 import sys
 import traceback
-import logging
+
 import alog
-import requests
-from fbmq import Page, Template
+import keywords
+from fbmq import Page
 from flask import Flask, request
 
-import _thread
-
-import pprint
-
-import event
-import handleMessage
-import keywords
-import secret
+import config
+from eventManager import event
+from messages import handleMessage
 
 app = Flask(__name__)
 
@@ -28,7 +24,7 @@ BANNED_USERNAME = ["1492060920843672"]
 
 GET_STARTED = "GET_STARTED"
 
-page = Page(secret.PAGE_ACCESS_TOKEN)
+page = Page(config.PAGE_ACCESS_TOKEN)
 
 ev = event.EventAPI()
 anal = keywords.WispiKeywords()

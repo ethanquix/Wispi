@@ -1,14 +1,14 @@
-from app import printReturnKW
-from fbmq import Template
-import alog
 import urllib.parse
 
-import keywords
-import event
-import searchImage
-import tastes
-
+import alog
 import arrow
+from fbmq import Template
+
+from app import printReturnKW
+from data_collect import searchImage
+from eventManager import event
+from interests import tastes
+from messages import keywords
 
 ev = event.EventAPI()
 anal = keywords.WispiKeywords()

@@ -1,5 +1,6 @@
 import pprint
-import eventful_api_implem_perso as eventful
+
+from eventManager import eventful_api_implem_perso as eventful
 
 DEFAULT_IMG_URL = "http://www.bloggingtips.com/wp-content/uploads/2014/12/Event-Blogging-Strategies.jpg"
 API_KEY_EVENTFULL = 'xxML6LLwcZLP7GfH'

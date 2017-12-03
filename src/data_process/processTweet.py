@@ -9,7 +9,7 @@ parentdir = os.path.dirname(currentdir)
 sys.path.insert(0, parentdir)
 
 import secret
-import handleMessage
+from messages import handleMessage
 import datetime
 
 from pymongo import MongoClient

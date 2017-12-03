@@ -1,6 +1,7 @@
 import json
-import event
 import os
+
+from eventManager import event
 
 ev = event.EventAPI()
 

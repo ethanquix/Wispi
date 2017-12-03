@@ -4,7 +4,8 @@ import urllib.request
 
 from bs4 import BeautifulSoup
 
-DEFAULT_IMG = "http://www.orangefairs.com/images/resource/event-manegment.jpg"
+import config
+
 
 def get_soup(url, header):
     return BeautifulSoup(urllib.request.urlopen(urllib.request.Request(url, headers=header)), 'html.parser')
@@ -21,7 +22,8 @@ def getImageUrl(query):
         soup = get_soup(url, header)
         return json.loads(soup.__str__())["data"]["result"]["items"][0]["media"]
     except:
-        return DEFAULT_IMG
+        return config.DEFAULT_IMG
+
 
 if __name__ == '__main__':
     print(getImageUrl("Shake ponk"))
