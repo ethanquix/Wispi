@@ -131,4 +131,6 @@
   Pour générer le certificat https nous avons utilisé [Let's Encrypt](https://letsencrypt.org/) qui nous a permis de générer un certificat SSL gratuitement et facilement
   > `$ letsencrypt nginx`
 
-  Enfin,
+  Comme proxy inverse, nous utilisé [Nginx](https://www.nginx.com/) pour sa facilité d'utilisation
+
+
