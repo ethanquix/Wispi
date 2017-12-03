@@ -13,6 +13,13 @@ class EventAPI(object):
         else:
             events = self._api.call('/events/search', l=cityOfEvent, page_size=nbElem)
         out = []
+
+        if events is None:
+            return None
+        if events['events'] is None:
+            return None
+        if events['events']['event'] is None:
+            return None
         for event in events['events']['event']:
             out.append(event)
         return out
