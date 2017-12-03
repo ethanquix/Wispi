@@ -15,16 +15,33 @@ subTitle: Messenger BOT with gather social events aroud you
 menu:
     sections:
         main:
-            name: Main documentation
+            name: Documentation
             items:
                 home:
-                    text: Home page
-                    # You can use relative urls
-                    relativeUrl: doc/faq.html
-                foo:
-                    text: Another link
-                    # Or absolute urls
-                    absoluteUrl: https://example.com
+                    text: Home
+                    relativeUrl: readme.html
+                fonctionnalites:
+                    text: Fonctionnalites
+                    relativeUrl: fonctionnalites.html
+                install:
+                    text: Install
+                    relativeUrl: install.html
+                problemes:
+                    text: Problèmes rencontrés
+                    relativeUrl: problemes.html
+                technologies:
+                    text: Technologies
+                    relativeUrl: technologies.html
+                use_case:
+                    text: Cas d'utilisations
+                    relativeUrl: use_case.html
         other:
-            name: Other topics
+            name: Other
             items:
+                privacy:
+                    text: Privacy
+                    relativeUrl: http://wispy.tk
+                wispy:
+                    text: Wispy Bot
+                    relativeUrl: https://www.facebook.com/wispibot/
+
