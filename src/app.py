@@ -141,6 +141,6 @@ def webhook():
 if __name__ == '__main__':
     page.show_starting_button(GET_STARTED)
     # page.hide_greeting()
-    page.greeting("Bievenue sur Wispi !\n Le bot intelligent qui cherche des evenements pour toi !\nMais te previent aussi des evènements autour de toi pourraient t'intéresser")
+    page.greeting("Hello je suis wispi ton compagnon de voyage\n je suis la pour te suggérer des activitées :)")
     page.hide_persistent_menu()
     app.run(port=8042, debug=True)

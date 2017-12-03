@@ -30,9 +30,9 @@ class EventAPI(object):
 
     def getEventByLocation(self, location, nbElem='5', typeOfEvent=None):
         if typeOfEvent is not None:
-            events = self._api.call('/events/search', l=location, page_size=nbElem, q=typeOfEvent, within=5)
+            events = self._api.call('/events/search', l=location, page_size=nbElem, q=typeOfEvent, within=20)
         else:
-            events = self._api.call('/events/search', l=location, page_size=nbElem, within=5)
+            events = self._api.call('/events/search', l=location, page_size=nbElem, within=20)
         out = []
 
         if events is None:

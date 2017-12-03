@@ -116,6 +116,8 @@
 
  Nous l'avons lié a notre compte github ainsi a chaque push, Travis éxécutait tous les tests unitaires présents.
 
+ ![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+
  Mais ce n'est pas tout. Nous avons aussi relié Travis a Codecov qui va ainsi nous générer un rendu du code coverage de notre code.
 
  Cela nous a permis de nous rendre compte en temps réel des problèmes possibles et du code que l'on aurait pu avoir cassé
@@ -132,5 +134,3 @@
   > `$ letsencrypt nginx`
 
   Comme proxy inverse, nous utilisé [Nginx](https://www.nginx.com/) pour sa facilité d'utilisation
-
-
