@@ -42,6 +42,9 @@ menu:
                 why:
                     text: Pourquoi un Bot ?
                     relativeUrl: why.html
+                couts:
+                    text: Couts du projet
+                    relativeUrl: couts.html
 #        other:
 #            name: Other
 #            items:

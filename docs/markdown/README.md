@@ -14,11 +14,10 @@
 # Travail Demandé:
 
 > Le détail des différentes étapes de votre réflexion autour du projet, ou « Comment êtes-vous arrivé à votre réalisation technique en partant d’une idée, d’un concept ? »  
-> le descriptif et la justification des technologies utilisées et des choix techniques effectués pour mettre en œuvre le projet  
+> le descriptif et la justification des technologies utilisées et des choix techniques effectués pour mettre en œuvre le projet [LINK](technologies.md)  
 > les problèmes rencontrés et les solutions apportées [LINK](problemes.md)  
 > les fonctionnalités du projet [LINK](fonctionnalites.md)  
-> les cas d’utilisation du projet (diagramme de use case possible)  
-> un chiffrage des coûts de réalisation du projet
->un post type Twitter de présentation du projet
->un post type page Facebook de présentation du projet
->et tout élément que vous jugez pertinent.
+> les cas d’utilisation du projet (diagramme de use case possible) [LINK](use_case.md)  
+> un chiffrage des coûts de réalisation du projet [LINK](fonctionnalites.md)  
+>un post type Twitter de présentation du projet [LINK](posts.md)  
+>un post type page Facebook de présentation du projet [LINK](couts.md)
