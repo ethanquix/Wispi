@@ -1,0 +1,16 @@
+sudo: false
+
+language: python
+
+python:
+  - "3.6"
+
+install:
+  - pip install codecov
+  - pip install -r src/requirements.txt
+
+script:
+  - coverage run src/testAll.py
+
+after_success:
+  - codecov --token=39f5b2b9-7527-4779-ac41-8ab08e4830bf
