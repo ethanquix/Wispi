@@ -18,6 +18,6 @@
 > les problèmes rencontrés et les solutions apportées [LINK](problemes.md)  
 > les fonctionnalités du projet [LINK](fonctionnalites.md)  
 > les cas d’utilisation du projet (diagramme de use case possible) [LINK](use_case.md)  
-> un chiffrage des coûts de réalisation du projet [LINK](fonctionnalites.md)  
+> un chiffrage des coûts de réalisation du projet [LINK](couts.md)  
 >un post type Twitter de présentation du projet [LINK](posts.md)  
->un post type page Facebook de présentation du projet [LINK](couts.md)
+>un post type page Facebook de présentation du projet [LINK](posts.md)
