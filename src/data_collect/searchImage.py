@@ -20,10 +20,10 @@ def getImageUrl(query):
                           "Chrome/43.0.2357.134 Safari/537.36 "
         }
         soup = get_soup(url, header)
-        return json.loads(soup.__str__())["data"]["result"]["items"][0]["media"]
+        return json.loads(soup.__str__())["data"]["result"]["items"][0]["media"] # pragma: no cover
     except:
         return config.DEFAULT_IMG
 
 
-if __name__ == '__main__':
+if __name__ == '__main__': # pragma: no cover
     print(getImageUrl("Shake ponk"))

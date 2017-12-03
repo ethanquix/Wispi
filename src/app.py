@@ -7,7 +7,7 @@ import sys
 import traceback
 
 import alog
-import keywords
+import messages.keywords
 from fbmq import Page
 from flask import Flask, request
 
@@ -27,7 +27,7 @@ GET_STARTED = "GET_STARTED"
 page = Page(config.PAGE_ACCESS_TOKEN)
 
 ev = event.EventAPI()
-anal = keywords.WispiKeywords()
+anal = messages.keywords.WispiKeywords()
 
 
 @app.route('/', methods=['GET'])

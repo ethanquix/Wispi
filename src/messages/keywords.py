@@ -5,7 +5,7 @@ from eventManager import event
 
 ev = event.EventAPI()
 
-DATA_CITIES_NAME = os.path.join(os.path.dirname(__file__), "data/cities.json")
+DATA_CITIES_NAME = os.path.join(os.path.dirname(__file__), "../data/cities.json")
 
 
 class SentenceType(enumerate):

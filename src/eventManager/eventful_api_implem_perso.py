@@ -20,8 +20,8 @@ class API:
     def call(self, method, **args):
         args['app_key'] = self.app_key
         if hasattr(self, 'user_key'):
-            args['user'] = self.user
-            args['user_key'] = self.user_key
+            args['user'] = self.user # pragma: no cover
+            args['user_key'] = self.user_key # pragma: no cover
         args = urllib.parse.urlencode(args)
         url = "http://%s/json/%s?%s" % (self.server, method, args)
 
@@ -31,14 +31,14 @@ class API:
         if status == 200:
             try:
                 return simplejson.loads(content)
-            except ValueError:
-                raise APIError("Unable to parse API response!")
+            except ValueError: # pragma: no cover
+                raise APIError("Unable to parse API response!") # pragma: no cover
         elif status == 404:
             raise APIError("Method not found: %s" % method)
-        else:
-            raise APIError("Non-200 HTTP response status: %s" % response['status'])
+        else: # pragma: no cover
+            raise APIError("Non-200 HTTP response status: %s" % response['status']) # pragma: no cover
 
-    def login(self, user, password):
+    def login(self, user, password): # pragma: no cover
         nonce = self.call('/users/login')['nonce']
         response = hashlib.md5.new(nonce + ':'
                            + hashlib.md5.new(password).hexdigest()).hexdigest()

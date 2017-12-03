@@ -1,9 +1,10 @@
 import pprint
 
 from eventManager import eventful_api_implem_perso as eventful
+import config
 
-DEFAULT_IMG_URL = "http://www.bloggingtips.com/wp-content/uploads/2014/12/Event-Blogging-Strategies.jpg"
-API_KEY_EVENTFULL = 'xxML6LLwcZLP7GfH'
+DEFAULT_IMG_URL = config.DEFAULT_IMG
+API_KEY_EVENTFULL = config.API_KEY_EVENTFULL
 
 
 class EventAPI(object):
@@ -62,11 +63,13 @@ class EventAPI(object):
         return out
 
     def getListCategories(self):
+        out = ""
         cat = self._api.call('categories/list')
         for c in cat["category"]:
-            print(c['id'])
+            out += c['id'] + "\n"
+        return out
 
-    def parseTitle(self, events):
+    def parseTitle(self, events): # pragma: no cover
         out = ""
         if events is None:
             return None
@@ -84,7 +87,7 @@ class EventAPI(object):
         return eventName, eventDate, eventLink, eventAdress, eventCity, eventId
 
 
-if __name__ == '__main__':
+if __name__ == '__main__': # pragma: no cover
     ev = EventAPI()
     tmp = ev.getEvent("Paris")
     for x in tmp:

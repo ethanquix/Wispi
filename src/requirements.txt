@@ -2,7 +2,7 @@ pymongo
 arrow
 alog
 fbmq
-Flask==0.11.1
+Flask
 Jinja2==2.8
 MarkupSafe==0.23
 Werkzeug==0.11.10
