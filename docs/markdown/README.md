@@ -13,7 +13,7 @@
 
 # Travail Demandé:
 
-> Le détail des différentes étapes de votre réflexion autour du projet, ou « Comment êtes-vous arrivé à votre réalisation technique en partant d’une idée, d’un concept ? »  
+> Le détail des différentes étapes de votre réflexion autour du projet, ou « Comment êtes-vous arrivé à votre réalisation technique en partant d’une idée, d’un concept ? [LINK](why.md)  
 > le descriptif et la justification des technologies utilisées et des choix techniques effectués pour mettre en œuvre le projet [LINK](technologies.md)  
 > les problèmes rencontrés et les solutions apportées [LINK](problemes.md)  
 > les fonctionnalités du projet [LINK](fonctionnalites.md)  
