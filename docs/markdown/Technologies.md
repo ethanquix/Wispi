@@ -111,14 +111,18 @@
 
  Pour cela, nous les avons pris très au sérieux. Nous avons essayé d'avoir 100% de coverage et de tester absolument tout ce qui était possible.
 
+![Tests](imgs/unit_tests.png)
+
  Mais nous avons aussi voulu aller plus loin.
  Nous utilisons Travis afin de tester notre code.
 
- Nous l'avons lié a notre compte github ainsi a chaque push, Travis éxécutait tous les tests unitaires présents.
+ Nous l'avons lié a notre compte github ainsi a chaque push, Travis éxécute tous les tests unitaires présents.
 
- ![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+ ![Travis](imgs/travis.png)
 
  Mais ce n'est pas tout. Nous avons aussi relié Travis a Codecov qui va ainsi nous générer un rendu du code coverage de notre code.
+
+![Codecov](imgs/codecov.png)
 
  Cela nous a permis de nous rendre compte en temps réel des problèmes possibles et du code que l'on aurait pu avoir cassé
 
@@ -134,3 +138,10 @@
   > `$ letsencrypt nginx`
 
   Comme proxy inverse, nous utilisé [Nginx](https://www.nginx.com/) pour sa facilité d'utilisation
+
+  Pour monitorer notre application ainsi que notre serveur, nous avons utilisé [Datadog](https://datadoghq.com) qui nous permet de voir en temps réel ce qui se passe mais aussi de définir des trigger dans le code afin d'obtenir différentes metrics  
+  Il permet aussi de monitorer le serveur pour nous prévenir si ce dernier crash. Cela permet aussi de controller la consommation en ressources de notre programme
+
+  ![Datadog](/docs/markdown/imgs/datadog.png)
+
+## Agile Dev
