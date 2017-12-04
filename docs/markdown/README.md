@@ -1,6 +1,6 @@
 # Bienvenue sur la documentation de Wispy
 
-/!\ La documentation est disponible a l'adresse suivante pour plus d'interactivité: https://http://dimitriwyzlic.me/Wispi/
+/!\ La documentation est disponible a l'adresse suivante pour plus d'interactivité: http://dimitriwyzlic.me/Wispi/
 
 > Pour lancer la documentation en mode interactif:
 ```
