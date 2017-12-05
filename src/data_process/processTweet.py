@@ -8,7 +8,7 @@ currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentfram
 parentdir = os.path.dirname(currentdir)
 sys.path.insert(0, parentdir)
 
-import secret
+import config
 from messages import handleMessage
 import datetime
 
@@ -17,7 +17,7 @@ from pymongo import MongoClient
 client = MongoClient("localhost")
 db = client.wispi
 
-page = Page(secret.PAGE_ACCESS_TOKEN)
+page = Page(config.PAGE_ACCESS_TOKEN)
 
 
 def process(tweet):
