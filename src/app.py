@@ -6,6 +6,8 @@ import os
 import sys
 import traceback
 
+import time
+
 import alog
 import messages.keywords
 from fbmq import Page, Attachment
@@ -83,6 +85,15 @@ def webhook():
 
                         if "attachments" in messaging_event["message"]:
 
+                            print("[WISPI_BOT] Received new location...")
+                            time.sleep(0.5)
+                            print("[WISPI_BOT] Analyzing", end="")
+                            time.sleep(0.2)
+                            print(".", end="")
+                            time.sleep(0.2)
+                            print(".", end="")
+                            time.sleep(0.2)
+                            print(".")
                             statsd.increment('message.location')
 
                             coord = ""
@@ -105,7 +116,17 @@ def webhook():
                             continue
 
                         message_text = messaging_event["message"]["text"]
-                        alog.warning("Received message: " + message_text)
+
+                        print("[WISPI_BOT] Received new message...")
+                        time.sleep(0.5)
+                        print("[WISPI_BOT] Analyzing message", end="")
+                        time.sleep(0.2)
+                        print(".", end="")
+                        time.sleep(0.2)
+                        print(".", end="")
+                        time.sleep(0.2)
+                        print(".")
+                        print("[WISPI_BOT] Found sender ! ", messaging_event["sender"]["id"])
 
                         if sender_id not in BANNED_USERNAME:
                             _thread.start_new_thread(handleMessage.handle, (sender_id, message_text, page))
@@ -116,10 +137,21 @@ def webhook():
                         pass
 
                     if messaging_event.get("postback"):
+
+                        print("[WISPI_BOT] Received new message...")
+                        time.sleep(0.5)
+                        print("[WISPI_BOT] Analyzing message", end="")
+                        time.sleep(0.2)
+                        print(".", end="")
+                        time.sleep(0.2)
+                        print(".", end="")
+                        time.sleep(0.2)
+                        print(".")
+                        print("[WISPI_BOT] Found sender ! ", messaging_event["sender"]["id"])
+
                         sender_id = messaging_event["sender"]["id"]
                         message_text = messaging_event["postback"]["payload"]
 
-                        alog.warning("Receive postback " + sender_id + " " + message_text)
                         if message_text == GET_STARTED:
                             statsd.increment('message.get_started')
                             page.send(sender_id, "Hello je suis Wispi ton compagnon de voyage\n je suis la pour te suggérer des activitées :)\n\nTape aide pour plus d'infos")
